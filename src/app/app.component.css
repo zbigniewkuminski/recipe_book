@@ -1,11 +1,52 @@
-button {
-    padding: 10px;
-    margin: 10px;
-}
 input {
-    margin: 10px;
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+#search-button {
+    margin-left: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
 .text-5 {
     color: white;
     background-color: aquamarine;
+}
+.form-control {
+    padding:20px;
+}
+#navbar-elements {
+    margin-top:10px;
+}
+.navbar-header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#title {
+    font-size: 40px;
+    font-family: "Monospace";
+    font-style: oblique;
+    color: white;
+}
+#main {
+    background-color: rgb(43, 43, 43);
+    color: white;
+}
+
+#blank {
+    background-color: white;
+    width: 20px;
+}
+#recipe-instructions { 
+    padding: 15px;
+    font-family: "Monospace";
+    font-style: oblique;
+    color: white;
+}
+#vl {
+    border-left: 20px solid rgb(255, 255, 255);
+    height: 500px;
 }
