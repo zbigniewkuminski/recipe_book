@@ -1,0 +1,10 @@
+<div class="container">
+    <input type="text" [(ngModel)]="password">
+    <button class="btn btn-primary" (click)="btnClick()">Ukryj/ pokaż</button>
+    <p *ngIf="!passwordHidden">hasło to {{ password }}</p>
+    <div 
+        *ngFor="let element of justArray; let i = index"
+        [ngStyle]="{backgroundColor: i >= 4 ? 'green': 'transparent'}"
+        [ngClass]="{'text-5': i >= 4}"
+        >{{ element }}</div>
+</div>
