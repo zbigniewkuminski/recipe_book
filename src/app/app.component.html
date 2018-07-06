@@ -1,11 +1,11 @@
-<div class="container">
+<div id="main-container" class="container">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
+                <img class="logo" src="./assets/images/logo.png">
                 <a id="title" href="#" class="navbar-brand">Recipe book</a>
             </div>
-
-            <div>
+            <div class="container-fluid">
                 <ul id="navbar-elements" class="nav navbar-nav">
                     <li>
                         <a href="#">Recipes</a>
@@ -13,41 +13,19 @@
                     <li>
                         <a href="#">Shopping list</a>
                     </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Page 1-1</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 1-2</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 1-3</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="#">New recipe</a>
                     </li>
                     <li>
-                        <input id="search-input" class="form-control" type="search" placeholder="Czego szukasz?">
+                        <input id="search-input" class="form-control pull-right text-right" type="search" placeholder="Czego szukasz?">
                     </li>
-                    <button id="search-button" class="btn btn-primary" type="submit">Szukaj</button>
+                    <li>
+                        <button id="search-button" class="btn btn-primary pull-right" type="submit">Szukaj</button>
+                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
-    <div id="main" class="container-fluid">
-        <div id="ingredients" class="col-md-2">
-            <h2>Składniki:</h2>
-            <app-list></app-list>
-        </div>
-        <div id="vl" class="col-md-1"></div>
-        <div id="recipe-details" class="col-md-9">
-            <h2>Przepis na {{ title }}</h2>
-            <div id="recipe-instructions">
-                UMYJ RĘCE!!!!
-            </div>
-        </div>
-    </div>
+    <app-list></app-list>
 </div>

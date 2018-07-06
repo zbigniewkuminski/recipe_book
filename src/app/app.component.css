@@ -11,10 +11,7 @@ input {
     background-color: rgb(255, 255, 255);
     color: black;
 }
-.text-5 {
-    color: white;
-    background-color: aquamarine;
-}
+
 .form-control {
     padding:20px;
 }
@@ -30,23 +27,23 @@ input {
     font-family: "Monospace";
     font-style: oblique;
     color: white;
-}
-#main {
-    background-color: rgb(43, 43, 43);
-    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(146, 0, 0);
 }
 
-#blank {
-    background-color: white;
-    width: 20px;
-}
 #recipe-instructions { 
     padding: 15px;
     font-family: "Monospace";
     font-style: oblique;
     color: white;
 }
-#vl {
-    border-left: 20px solid rgb(255, 255, 255);
-    height: 500px;
+.logo {
+    height: auto;
+    width: 50px;
+}
+#recipe-img {
+    margin-top:1px;
+}
+#main-container {
+    background-color: black;
 }

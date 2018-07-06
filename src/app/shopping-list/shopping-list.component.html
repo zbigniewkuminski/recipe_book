@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <input type="text" [(ngModel)]="newShoppingListItem" placeholder="Do listy zakupów">
+  <button id="add-button" class="btn btn-success" (click)="addToShoppingList()">Dodaj do listy</button>
+  <p class="errorMessage" *ngIf="!errorMessage === ''">{{ errorMessage }} {{ newShoppingListItem }}</p>
+  <ul *ngFor="let item of shoppingList">
+    <li> {{item}} </li>
+  </ul>
+</div>
