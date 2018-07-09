@@ -1,0 +1,18 @@
+textarea {
+    resize: none;
+}
+.newRecipeInput { 
+    padding-right: 20px;
+}
+.newRecipeButton {
+    margin-top: 5px;
+}
+.errorMsg {
+    margin-top: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 175, 188);
+    border: 1px solid red;
+}
+.newRecipeLabel {
+    color: white;
+}

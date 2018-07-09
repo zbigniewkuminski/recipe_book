@@ -1,3 +1,40 @@
 <div class="container">
-  
+    <div class="row">
+        <div class="col-lg-5 newRecipeInput">
+            <label class="newRecipeLabel" for="inputName">Podaj nazwę przepisu:</label>
+            <input type="text" class="form form-control" placeholder="Podaj nazwę przepisu">
+        </div>
+
+        <div class="col-lg-4 newRecipeInput">
+            <label class="newRecipeLabel" for="ingredientName">Podaj składnik:</label>
+            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredient" #ingredientInput>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-xs newRecipeButton" (click)="addIngredient()">Dodaj</button>
+                </div>
+                <div class="col-md-10">
+                    <label for="errorMsg" class="errorMsg" *ngIf="errorStatus">{{errorMsg}}</label>
+                </div>
+            </div>
+            <ul class="newRecipeLabel" *ngFor="let ing of ingredient; let i = index">
+                <li>
+                    {{ing}}
+                    <button class="btn-xs btn btn-danger" (click)="deleteIngredient(i)"><span class="glyphicon glyphicon-remove"></span></button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-1">
+            <label for="ingredientAmount" class="newRecipeLabel">Ilość:</label>
+            <input class="form form-control" type="number">
+        </div>
+
+        <div class="col-md-12 newRecipeInput">
+            <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
+            <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę"></textarea>
+        </div>
+
+        <div class="col-md-1">
+            <button class="btn btn-success newRecipeButton">Dodaj przepis</button>
+        </div>
+    </div>
 </div>

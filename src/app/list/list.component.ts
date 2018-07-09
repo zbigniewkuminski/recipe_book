@@ -15,5 +15,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  addNewRecipe(recipe: {name: string, description: string, ingredients: string[], imgPath: string}) {
+    this.recipes.push(new ItemModel(recipe.name, recipe.description, recipe.ingredients, recipe.imgPath));
+  }
 }
