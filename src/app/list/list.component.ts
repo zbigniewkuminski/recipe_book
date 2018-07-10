@@ -1,22 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemModel } from './item.model';
+import { Recipe } from '../shared/recipe.model';
+import { Ingredient } from '../shared/ingredient.model';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  recipes: ItemModel[] = [ 
-    new ItemModel('kanapka','Pokrój chleb. Posmaruj masłem...',['chleb','masło'],'./assets/images/kanapka.jpg'),
-    new ItemModel('jajecznica','Rozgrzej patelnię. Wbij jajka',['jajka','chleb'],'./assets/images/jajecznica.jpg'),    
-    new ItemModel('ryż','Ugotuj ryż',['ryż'],'./assets/images/ryż.jpg'),  
+  recipes: Recipe[] = [ 
+    new Recipe('kanapka',[{name: "chleb", amount: 2},{name: "masło", amount: 1}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
+    new Recipe('jajecznica',[{name: "jajka", amount: 4},{name: "chleb", amount: 2}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
+    new Recipe('ryż',[{name: "ryż", amount: 1}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
   ];
   @Input() featureTitle: string;
+
   constructor() { }
 
   ngOnInit() {
   }
-  addNewRecipe(recipe: {name: string, description: string, ingredients: string[], imgPath: string}) {
-    this.recipes.push(new ItemModel(recipe.name, recipe.description, recipe.ingredients, recipe.imgPath));
-  }
+
+  // addNewRecipe(recipe: {name: string, description: string, ingredients: Ingredient[], imgPath: string}) {
+  //   this.recipes.push(new Recipe(recipe.name, recipe.ingredients, recipe.imgPath, recipe.description));
+  // }
 }

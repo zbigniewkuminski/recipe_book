@@ -1,8 +1,20 @@
-<div class="container-fluid">
-  <input type="text" [(ngModel)]="newShoppingListItem" placeholder="Do listy zakupów">
-  <button id="add-button" class="btn btn-success" (click)="addToShoppingList()">Dodaj do listy</button>
-  <p class="errorMessage" *ngIf="!errorMessage === ''">{{ errorMessage }} {{ newShoppingListItem }}</p>
-  <ul *ngFor="let item of shoppingList">
-    <li> {{item}} </li>
-  </ul>
+<p>{{featureTitle}}</p>
+<div id="main" class="container-fluid">
+    <div class="row">
+        <div id="listInput" class="col-md-4">
+            <br>
+            Przygotuj listę zakupów:
+            <hr>
+            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItem" placeholder="Wpisz co dodać" >
+            <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()">Dodaj do listy <span class="glyphicon glyphicon-shopping-cart"></span></button>
+            <p class="errorMessage" *ngIf="!errorMessage === ''">{{ errorMessage }} {{ newShoppingListItem }}</p>
+            <ul *ngFor="let item of shoppingList">
+              <li> {{item}} </li>
+            </ul>
+        </div>
+
+        <div id="shoppingList" class="col-md-4 container-fluid">
+          <p>Lista zakupów:</p> 
+        </div>
+    </div>
 </div>

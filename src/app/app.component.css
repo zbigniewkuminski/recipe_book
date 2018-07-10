@@ -4,17 +4,11 @@ input {
     color: black;
 }
 #search-button {
-    margin-left: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
     background-color: rgb(73, 145, 252);
-    color: black;
+    margin-top: 5px;
+    color: white;
 }
 
-.form-control {
-    padding:20px;
-}
 #navbar-elements {
     margin-top:10px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 
@@ -9,6 +9,7 @@ import { Recipe } from '../shared/recipe.model';
 })
 export class NewRecipeComponent implements OnInit {
   @Input() featureTitle: string;
+  @Output() newRecipeEvent = new EventEmitter<Recipe>();
   newRecipe = new Recipe('',[],'','');
 
   ingredients: Ingredient[] = [];
@@ -67,10 +68,11 @@ export class NewRecipeComponent implements OnInit {
     this.ingredients = [];
     this.errorMsg = '';
     this.errorStatus = false;
+    this.newIngredientAmount = 1;
   }
 
   createNewRecipe() {
     this.newRecipe = new Recipe(this.newRecipeName, this.ingredients, this.newRecipeImgUrl, this.newRecipeDesc);
-    console.log(this.newRecipe);
+    this.newRecipeEvent.emit(this.newRecipe);
   }
 }

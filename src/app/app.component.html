@@ -1,11 +1,11 @@
 <div id="main-container" class="container">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header col-md-5">
                 <img class="logo" src="./assets/images/logo.png">
                 <a id="title" href="#" class="navbar-brand">Recipe book</a>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid col-md-7">
                 <ul id="navbar-elements" class="nav navbar-nav">
                     <li>
                         <a href="#"(click)="selectedFeature='Recipes'">Recipes</a>
@@ -17,10 +17,10 @@
                         <a href="#" (click)="selectedFeature='New Recipe'">New recipe</a>
                     </li>
                     <li>
-                        <input id="search-input" class="form-control pull-right text-right" type="search" placeholder="Czego szukasz?">
+                        <input id="search-input" class="form-control text-center" type="search" placeholder="Czego szukasz?">
                     </li>
                     <li>
-                        <button id="search-button" class="btn btn-primary pull-right" type="submit">Szukaj</button>
+                        <button id="search-button" class="btn btn-primary form-control" type="submit">Szukaj <span class="glyphicon glyphicon-search"></span></button>
                     </li>
 
                 </ul>
@@ -28,6 +28,6 @@
         </div>
     </nav>
     <app-list *ngIf="selectedFeature == 'Recipes'" [featureTitle] = "selectedFeature"></app-list>
-    <app-new-recipe *ngIf="selectedFeature == 'New Recipe'" [featureTitle] = "selectedFeature"></app-new-recipe>
+    <app-new-recipe *ngIf="selectedFeature == 'New Recipe'" [featureTitle] = "selectedFeature" (newRecipeEvent)="receiveEvent($event)"></app-new-recipe>
     <app-shopping-list *ngIf="selectedFeature == 'Shopping List'" [featureTitle] = "selectedFeature"></app-shopping-list>
 </div>
