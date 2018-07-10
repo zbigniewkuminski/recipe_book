@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ItemModel } from './item.model';
 @Component({
   selector: 'app-list',
@@ -11,6 +11,7 @@ export class ListComponent implements OnInit {
     new ItemModel('jajecznica','Rozgrzej patelnię. Wbij jajka',['jajka','chleb'],'./assets/images/jajecznica.jpg'),    
     new ItemModel('ryż','Ugotuj ryż',['ryż'],'./assets/images/ryż.jpg'),  
   ];
+  @Input() featureTitle: string;
   constructor() { }
 
   ngOnInit() {

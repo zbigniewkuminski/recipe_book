@@ -1,40 +1,59 @@
-<div class="container">
+<p>{{featureTitle}}</p>
+<div id="main" class="container-fluid">
     <div class="row">
-        <div class="col-lg-5 newRecipeInput">
+        <div class="col-md-4 newRecipeInput">
             <label class="newRecipeLabel" for="inputName">Podaj nazwę przepisu:</label>
-            <input type="text" class="form form-control" placeholder="Podaj nazwę przepisu">
+            <input type="text" class="form form-control" placeholder="Podaj nazwę przepisu" [(ngModel)] = "newRecipeName">
         </div>
 
-        <div class="col-lg-4 newRecipeInput">
-            <label class="newRecipeLabel" for="ingredientName">Podaj składnik:</label>
-            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredient" #ingredientInput>
+        <div class="col-md-4 newRecipeInput">
+
+            <label class="newRecipeLabel" for="ingredientName">Podaj składniki:</label>
+            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredientName" #ingredientInput>
+
             <div class="row">
+
                 <div class="col-md-2">
                     <button class="btn btn-primary btn-xs newRecipeButton" (click)="addIngredient()">Dodaj</button>
                 </div>
-                <div class="col-md-10">
+
+                <div class="col-md-2">
+                    <button class="btn btn-danger btn-xs newRecipeButton" (click)="clearIngredientsList()">Wyczyść</button>
+                </div>
+
+                <div class="col-md-8">
                     <label for="errorMsg" class="errorMsg" *ngIf="errorStatus">{{errorMsg}}</label>
                 </div>
+
             </div>
-            <ul class="newRecipeLabel" *ngFor="let ing of ingredient; let i = index">
+
+            <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                 <li>
-                    {{ing}}
-                    <button class="btn-xs btn btn-danger" (click)="deleteIngredient(i)"><span class="glyphicon glyphicon-remove"></span></button>
+                    {{ing.name}} ({{ing.amount}})
+                    <button class="btn-xs btn btn-danger" (click)="deleteIngredient(i)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
                 </li>
             </ul>
         </div>
-        <div class="col-lg-1">
-            <label for="ingredientAmount" class="newRecipeLabel">Ilość:</label>
-            <input class="form form-control" type="number">
-        </div>
-
-        <div class="col-md-12 newRecipeInput">
-            <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
-            <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę"></textarea>
-        </div>
-
         <div class="col-md-1">
-            <button class="btn btn-success newRecipeButton">Dodaj przepis</button>
+            <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
+            <input class="form form-control text-center" type="number" [(ngModel)]="newIngredientAmount" min="1">
         </div>
     </div>
+
+    <div class="row col-md-12">
+        <label for="ingredientImagePath" class="newRecipeLabel">Podaj URL zdjęcia przepisu:</label>
+        <input type="text" class="form form-control" placeholder="Wpisz adres URL" [(ngModel)]="newRecipeImgUrl">
+    </div>
+
+    <div class="row col-md-12 newRecipeInput">
+        <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
+        <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę" [(ngModel)] = "newRecipeDesc"></textarea>
+    </div>
+
+    <div class="row col-md-2">
+        <button class="btn btn-success newRecipeButton" (click)="createNewRecipe()">Dodaj przepis</button>
+    </div>
+
 </div>

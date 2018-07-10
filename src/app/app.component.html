@@ -8,13 +8,13 @@
             <div class="container-fluid">
                 <ul id="navbar-elements" class="nav navbar-nav">
                     <li>
-                        <a href="#">Recipes</a>
+                        <a href="#"(click)="selectedFeature='Recipes'">Recipes</a>
                     </li>
                     <li>
-                        <a href="#">Shopping list</a>
+                        <a href="#" (click)="selectedFeature='Shopping List'">Shopping list</a>
                     </li>
                     <li>
-                        <a href="#">New recipe</a>
+                        <a href="#" (click)="selectedFeature='New Recipe'">New recipe</a>
                     </li>
                     <li>
                         <input id="search-input" class="form-control pull-right text-right" type="search" placeholder="Czego szukasz?">
@@ -27,8 +27,7 @@
             </div>
         </div>
     </nav>
-    <app-list></app-list>
-    <br>
-    <hr>
-    <app-new-recipe></app-new-recipe>
+    <app-list *ngIf="selectedFeature == 'Recipes'" [featureTitle] = "selectedFeature"></app-list>
+    <app-new-recipe *ngIf="selectedFeature == 'New Recipe'" [featureTitle] = "selectedFeature"></app-new-recipe>
+    <app-shopping-list *ngIf="selectedFeature == 'Shopping List'" [featureTitle] = "selectedFeature"></app-shopping-list>
 </div>

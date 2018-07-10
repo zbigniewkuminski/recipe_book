@@ -4,20 +4,20 @@
   <ul *ngFor="let recipe of recipes">
     <div class="row">
       <div id="ingredients" class="col-md-2">
-      <h2>Składniki:</h2>
-      <ul *ngFor="let ing of recipe.ingredients">
-        <li>{{ ing }}</li>
-      </ul>
-    </div>
+        <h2>Składniki:</h2>
+        <ul *ngFor="let ing of recipe.ingredients">
+          <li>{{ ing }}</li>
+        </ul>
+      </div>
       <div id="recipe-details" class="col-md-10">
-      <div id="recipe-img" class="col-md-4">
-        <img class="img-responsive" src=' {{recipe.imagePath}} '>
-      </div>
+        <div id="recipe-img" class="col-md-4">
+          <img class="img-responsive img-thumbnail" src=' {{recipe.imagePath}} '>
+        </div>
         <div id="recipe-instructions" class="col-md-8 text-right">
-        <h2> {{ recipe.name }} </h2>
-        {{ recipe.description }}
+          <h2> {{ recipe.name }} </h2>
+          {{ recipe.description }}
+        </div>
       </div>
-    </div>
     </div>
     <hr>
   </ul>

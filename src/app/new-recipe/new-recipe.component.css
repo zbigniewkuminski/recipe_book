@@ -15,4 +15,20 @@ textarea {
 }
 .newRecipeLabel {
     color: white;
+    margin-top: 15px;
+    margin-bottom: 0px;
+
+}
+.container {
+    height: 600px;
+}
+p {
+    color: white;
+    font-size: 32px;
+    margin-left: 20px;
+}
+#main {
+    background-color: rgb(43, 43, 43);
+    color: white;
+    height: 600px;
 }
