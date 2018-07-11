@@ -7,11 +7,15 @@ import { Recipe } from './shared/recipe.model';
 })
 export class AppComponent {
   selectedFeature = 'Recipes';
-  newRecipe = new Recipe('',[],'','');
+  newRecipe = new Recipe('', [], '', '');
+
+  ngOnInit() {
+
+  }
 
   receiveEvent(receivedRecipe: Recipe) {
     this.newRecipe = receivedRecipe;
     console.log(this.newRecipe);
   }
-  
+
 }

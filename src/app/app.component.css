@@ -8,6 +8,11 @@ input {
     margin-top: 5px;
     color: white;
 }
+#search-button:hover {
+    background-color: #1f63c9;
+    margin-top: 5px;
+    color: white;
+}
 
 #navbar-elements {
     margin-top:10px;
@@ -41,3 +46,10 @@ input {
 #main-container {
     background-color: black;
 }
+#navbar {
+    background-color:  rgb(43, 43, 43);
+}
+#navbar-button:hover {
+    background-color: rgb(155, 155, 155);
+    color: black;
+}   

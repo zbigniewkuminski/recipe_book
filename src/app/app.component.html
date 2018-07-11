@@ -1,33 +1,35 @@
 <div id="main-container" class="container">
-    <nav class="navbar navbar-inverse">
+    <nav id="navbar" class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header col-md-5">
+            <div class="navbar-header col-md-3">
                 <img class="logo" src="./assets/images/logo.png">
                 <a id="title" href="#" class="navbar-brand">Qchnia</a>
             </div>
-            <div class="container-fluid col-md-7">
+            <div class="container-fluid col-md-9">
                 <ul id="navbar-elements" class="nav navbar-nav">
-                    <li>
-                        <a href="#"(click)="selectedFeature='Recipes'">Przepisy</a>
+                    <li id="navbar-button">
+                        <a href="#" (click)="selectedFeature='Recipes'">Przepisy</a>
                     </li>
-                    <li>
+                    <li id="navbar-button">
                         <a href="#" (click)="selectedFeature='Shopping List'">Lista zakupów</a>
                     </li>
-                    <li>
+                    <li id="navbar-button">
                         <a href="#" (click)="selectedFeature='New Recipe'">Nowy przepis</a>
                     </li>
                     <li>
                         <input id="search-input" class="form-control text-center" type="search" placeholder="Czego szukasz?">
                     </li>
                     <li>
-                        <button id="search-button" class="btn btn-primary form-control" type="submit">Szukaj <span class="glyphicon glyphicon-search"></span></button>
+                        <button id="search-button" class="btn btn-primary form-control" type="submit">Szukaj
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
                     </li>
 
                 </ul>
             </div>
         </div>
     </nav>
-    <app-list *ngIf="selectedFeature == 'Recipes'" [featureTitle] = "selectedFeature"></app-list>
-    <app-new-recipe *ngIf="selectedFeature == 'New Recipe'" [featureTitle] = "selectedFeature" (newRecipeEvent)="receiveEvent($event)"></app-new-recipe>
-    <app-shopping-list *ngIf="selectedFeature == 'Shopping List'" [featureTitle] = "selectedFeature"></app-shopping-list>
+    <app-list *ngIf="selectedFeature == 'Recipes'" [featureTitle]="selectedFeature"></app-list>
+    <app-new-recipe *ngIf="selectedFeature == 'New Recipe'" [featureTitle]="selectedFeature" (newRecipeEvent)="receiveEvent($event)"></app-new-recipe>
+    <app-shopping-list *ngIf="selectedFeature == 'Shopping List'" [featureTitle]="selectedFeature"></app-shopping-list>
 </div>

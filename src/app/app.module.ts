@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { Highlight } from './directives/highlight.directive';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     ListComponent,
     ShoppingListComponent,
     NewRecipeComponent,
+    Highlight
   ],
   imports: [
     BrowserModule,
