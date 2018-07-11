@@ -25,11 +25,11 @@
             <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
             <input class="form form-control text-center" type="text" [(ngModel)]="newIngredientAmount" min="1">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj</button>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <button class="btn btn-danger btn-sm newRecipeButton" (click)="clearIngredientsList()">Wyczyść</button>
                 </div>
             </div>
