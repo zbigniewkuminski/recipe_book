@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../shared/recipe.model';
-import { Ingredient } from '../shared/ingredient.model';
-import { AddRecipeService } from '../service/add-recipe.service';
+import { AddRecipeService } from 'src/app/service/add-recipe.service';
+
 
 @Component({
   selector: 'app-list',
@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   constructor(private addRecipe: AddRecipeService) { }
 
   ngOnInit() {
-    this.recipes = this.addRecipe.recipes;
+    this.recipes = this.addRecipe.recipesArray;
   }
 
 }
