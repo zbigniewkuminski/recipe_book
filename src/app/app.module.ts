@@ -8,11 +8,13 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { Highlight } from './directives/highlight.directive';
 import { AddRecipeService } from './service/add-recipe.service';
 import { Routes, RouterModule } from '@angular/router';
+import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
   { path: '', component: ListComponent },
-  { path: 'shopping-list', component: ShoppingListComponent }
+  { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'my-fridge', component: MojaLodowkaComponent }
 ]
 
 @NgModule({
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     ListComponent,
     ShoppingListComponent,
     NewRecipeComponent,
-    Highlight
+    Highlight,
+    MojaLodowkaComponent
   ],
   imports: [
     BrowserModule,

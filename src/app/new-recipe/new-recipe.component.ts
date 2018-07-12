@@ -13,7 +13,7 @@ export class NewRecipeComponent implements OnInit {
 
   newIngredientName = '';
   newIngredientAmount = 1;
-  newIngredientImgPath = 'https://ocdn.eu/pulscms-transforms/1/9-sk9kqTURBXy84OWU2MWUwODJlMTUyNzY3YTJmYmMzNTQwMGNiMWM3ZC5qcGVnkpUDACPNA-jNAjKVAs0B4ADCw4GhMQI';
+  newIngredientImgPath = '';
   sameIngredientCounter = 0;
   ingredients: Ingredient[] = [];
 

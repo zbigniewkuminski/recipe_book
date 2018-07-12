@@ -9,6 +9,7 @@ import { AddRecipeService } from '../service/add-recipe.service';
 })
 export class ListComponent implements OnInit {
   recipes: Recipe[] = [];
+  
   @Input() featureTitle: string;
 
   constructor(private recipeService: AddRecipeService) {

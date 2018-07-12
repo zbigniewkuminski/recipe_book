@@ -46,7 +46,7 @@
         <input type="text" class="form form-control" placeholder="Wpisz adres URL" [(ngModel)]="newRecipeImgUrl">
     </div>
 
-    <div class="rownewRecipeInput">
+    <div class="rowNewRecipeInput">
         <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
         <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę" [(ngModel)]="newRecipeDesc"></textarea>
     </div>
@@ -60,9 +60,10 @@
             <button class="btn btn-danger newRecipeButton form-control" (click)="clearNewRecipe()">Wyczyść</button>
         </div>
     </div>
-    <hr>
 
-    <div class="row">
+
+    <div class="row" *ngIf="newRecipeName !='' || newRecipeDesc !='' || ingredients.length != 0">
+            <hr>
         <p>Podgląd:</p>
         <div id="ingredients" class="col-md-2">
             <h2>Składniki:</h2>
@@ -87,4 +88,4 @@
 
 </div>
 
-<p appHighlight>Wypisuje do konsoli info--- Directive</p>
+<!-- <p appHighlight>Wypisuje do konsoli info--- Directive</p> -->

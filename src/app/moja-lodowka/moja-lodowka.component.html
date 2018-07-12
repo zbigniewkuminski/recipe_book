@@ -1,0 +1,15 @@
+<div id="main" class="container container-fluid col-md-12">
+  <div class="row">
+    <div class="col-md-4">
+      <p>Twoja lodówka:</p>
+        <ul *ngFor="let ingredient of myFridgeIngredients">
+          <li>
+            {{ingredient.name}} ({{ingredient.amount}})
+          </li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        
+    </div>
+  </div>
+</div>
