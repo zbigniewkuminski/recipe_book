@@ -7,7 +7,13 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { Highlight } from './directives/highlight.directive';
 import { AddRecipeService } from './service/add-recipe.service';
+import { Routes, RouterModule } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: 'new-recipe', component: NewRecipeComponent },
+  { path: '', component: ListComponent },
+  { path: 'shopping-list', component: ShoppingListComponent }
+]
 
 @NgModule({
   declarations: [
@@ -20,6 +26,7 @@ import { AddRecipeService } from './service/add-recipe.service';
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AddRecipeService],
   bootstrap: [AppComponent]
