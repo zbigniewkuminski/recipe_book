@@ -13,9 +13,4 @@ export class AppComponent {
 
   }
 
-  receiveEvent(receivedRecipe: Recipe) {
-    this.newRecipe = receivedRecipe;
-    console.log(this.newRecipe);
-  }
-
 }

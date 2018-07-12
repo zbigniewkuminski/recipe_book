@@ -1,5 +1,6 @@
 textarea {
     resize: none;
+    height:200px;
 }
 .newRecipeInput { 
     padding-right: 20px;
@@ -30,5 +31,4 @@ p {
 #main {
     background-color: rgb(43, 43, 43);
     color: white;
-    height: 600px;
 }

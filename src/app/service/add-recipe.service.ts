@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Recipe } from 'src/app/shared/recipe.model';
 
 @Injectable({
@@ -12,7 +12,10 @@ export class AddRecipeService {
   ];
   constructor() { }
 
-  addRecipe(newRecipe: Recipe) {
-    this.recipesArray.push(newRecipe);
-  } 
+  @Output() newRecipe = new EventEmitter<Recipe>();
+
+  addNewRecipe(newRecipeObj: Recipe) {
+    this.recipesArray.push(newRecipeObj);
+    this.newRecipe.emit(newRecipeObj);
+  }
 }

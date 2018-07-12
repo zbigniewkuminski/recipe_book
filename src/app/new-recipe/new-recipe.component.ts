@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
+import { AddRecipeService } from '../service/add-recipe.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -9,24 +10,22 @@ import { Recipe } from '../shared/recipe.model';
 })
 export class NewRecipeComponent implements OnInit {
   @Input() featureTitle: string;
-  @Output() newRecipeEvent = new EventEmitter<Recipe>();
-  newRecipe = new Recipe('',[],'','');
-
-  ingredients: Ingredient[] = [];
 
   newIngredientName = '';
   newIngredientAmount = 1;
-  newIngredientImgPath = '';
+  newIngredientImgPath = 'https://ocdn.eu/pulscms-transforms/1/9-sk9kqTURBXy84OWU2MWUwODJlMTUyNzY3YTJmYmMzNTQwMGNiMWM3ZC5qcGVnkpUDACPNA-jNAjKVAs0B4ADCw4GhMQI';
   sameIngredientCounter = 0;
+  ingredients: Ingredient[] = [];
 
   errorMsg = '';
   errorStatus = false;
 
+  newRecipe = new Recipe('', [], '', '');
   newRecipeName = '';
   newRecipeImgUrl = '';
   newRecipeDesc = '';
 
-  constructor() { }
+  constructor(private recipeService :AddRecipeService) { }
   ngOnInit() {
   }
 
@@ -69,10 +68,30 @@ export class NewRecipeComponent implements OnInit {
     this.errorMsg = '';
     this.errorStatus = false;
     this.newIngredientAmount = 1;
+    this.newIngredientName = '';
   }
-
+  clearNewRecipe() {
+    this.clearIngredientsList();
+    this.newRecipeName = '';
+    this.newRecipeImgUrl = '';
+    this.newRecipeDesc = '';
+  }
   createNewRecipe() {
-    this.newRecipe = new Recipe(this.newRecipeName, this.ingredients, this.newRecipeImgUrl, this.newRecipeDesc);
-    this.newRecipeEvent.emit(this.newRecipe);
+    if(this.newRecipeName !== '' && this.newRecipeDesc !== '' && this.ingredients.length !== 0) {
+      this.newRecipe.name = this.newRecipeName;
+      this.newRecipe.ingredients = this.ingredients;
+      this.newRecipe.description = this.newRecipeDesc;
+      this.newRecipe.imageURL = this.newRecipeImgUrl;
+
+      this.recipeService.addNewRecipe(this.newRecipe);
+
+      alert("Utworzono nowy przepis");      
+      this.clearIngredientsList();
+      this.newRecipeName = '';
+      this.newRecipeImgUrl = '';
+      this.newRecipeDesc = '';
+    } else {
+      alert("Wypełnij wszystkie pola");
+    }
   }
 }

@@ -25,6 +25,7 @@
             <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
             <input class="form form-control text-center" type="text" [(ngModel)]="newIngredientAmount" min="1">
             <div class="row">
+
                 <div class="col-md-6">
                     <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj</button>
                 </div>
@@ -32,6 +33,7 @@
                 <div class="col-md-6">
                     <button class="btn btn-danger btn-sm newRecipeButton" (click)="clearIngredientsList()">Wyczyść</button>
                 </div>
+
             </div>
             <div class="col-md-12">
                 <label for="errorMsg" class="errorMsg" *ngIf="errorStatus">{{errorMsg}}</label>
@@ -44,14 +46,39 @@
         <input type="text" class="form form-control" placeholder="Wpisz adres URL" [(ngModel)]="newRecipeImgUrl">
     </div>
 
-    <div class="row col-md-12 newRecipeInput">
+    <div class="rownewRecipeInput">
         <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
         <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę" [(ngModel)]="newRecipeDesc"></textarea>
     </div>
 
-    <div class="row col-md-2">
-        <button class="btn btn-success newRecipeButton form-control" (click)="createNewRecipe()">Dodaj przepis</button>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-success newRecipeButton form-control" (click)="createNewRecipe()">Dodaj przepis</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger newRecipeButton form-control" (click)="clearNewRecipe()">Wyczyść</button>
+        </div>
     </div>
+    <hr>
 
+    <div class="row">
+            <p>Podgląd:</p>
+            <div id="ingredients" class="col-md-2">
+                <h2>Składniki:</h2>
+                <ul *ngFor="let ing of ingredients">
+                    <li>{{ ing.name }} ({{ing.amount}})</li>
+                </ul>
+            </div>
+            <div id="recipe-details" class="col-md-10">
+                    <div id="recipe-img" class="col-md-4">
+                      <img class="img-responsive img-thumbnail" src=' {{newRecipeImgUrl}} '>
+                    </div>
+                    <div id="recipe-instructions" class="col-md-8 text-left">
+                      <h2> {{ newRecipeName }} </h2>
+                      {{ newRecipeDesc }}
+                    </div>
+                  </div>
+        </div>
 </div>
+
 <p appHighlight>Wypisuje do konsoli info--- Directive</p>
