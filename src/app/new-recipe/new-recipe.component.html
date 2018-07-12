@@ -9,7 +9,7 @@
 
         <div class="col-md-4 newRecipeInput">
             <label class="newRecipeLabel" for="ingredientName">Podaj składniki:</label>
-            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredientName" #ingredientInput>
+            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredientName">
 
             <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                 <li>
@@ -27,7 +27,7 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj</button>
+                    <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj  <span class="glyphicon glyphicon-plus"></span></button>
                 </div>
 
                 <div class="col-md-6">
@@ -55,6 +55,7 @@
         <div class="col-md-4">
             <button class="btn btn-success newRecipeButton form-control" (click)="createNewRecipe()">Dodaj przepis</button>
         </div>
+
         <div class="col-md-4">
             <button class="btn btn-danger newRecipeButton form-control" (click)="clearNewRecipe()">Wyczyść</button>
         </div>
@@ -62,23 +63,28 @@
     <hr>
 
     <div class="row">
-            <p>Podgląd:</p>
-            <div id="ingredients" class="col-md-2">
-                <h2>Składniki:</h2>
-                <ul *ngFor="let ing of ingredients">
-                    <li>{{ ing.name }} ({{ing.amount}})</li>
-                </ul>
-            </div>
-            <div id="recipe-details" class="col-md-10">
-                    <div id="recipe-img" class="col-md-4">
-                      <img class="img-responsive img-thumbnail" src=' {{newRecipeImgUrl}} '>
-                    </div>
-                    <div id="recipe-instructions" class="col-md-8 text-left">
-                      <h2> {{ newRecipeName }} </h2>
-                      {{ newRecipeDesc }}
-                    </div>
-                  </div>
+        <p>Podgląd:</p>
+        <div id="ingredients" class="col-md-2">
+            <h2>Składniki:</h2>
+            <ul *ngFor="let ing of ingredients">
+                <li>{{ ing.name }} ({{ing.amount}})</li>
+            </ul>
         </div>
+
+        <div id="recipe-details" class="col-md-10">
+            <div id="recipe-img" class="col-md-4" *ngIf="newRecipeImgUrl != ''">
+                <img class="img-responsive img-thumbnail" src=' {{newRecipeImgUrl}} '>
+            </div>
+
+            <div id="recipe-instructions" class="col-md-8 text-left">
+                <h2> {{ newRecipeName }} </h2>
+                {{ newRecipeDesc }}
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 <p appHighlight>Wypisuje do konsoli info--- Directive</p>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../shared/recipe.model';
-import { AddRecipeService } from 'src/app/service/add-recipe.service';
+import { AddRecipeService } from '../service/add-recipe.service';
 
 @Component({
   selector: 'app-list',
@@ -11,10 +11,14 @@ export class ListComponent implements OnInit {
   recipes: Recipe[] = [];
   @Input() featureTitle: string;
 
-  constructor(private addRecipe: AddRecipeService) {
+  constructor(private recipeService: AddRecipeService) {
    }
 
   ngOnInit() {
-    this.recipes = this.addRecipe.recipesArray;
+    this.recipes = this.recipeService.recipesArray;
+  }
+
+  deleteRecipe(id: number) {
+    this.recipeService.deleteRecipe(id);
   }
 }

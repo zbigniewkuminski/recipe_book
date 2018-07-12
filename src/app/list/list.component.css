@@ -7,6 +7,7 @@
     font-family: "Monospace";
     font-style: oblique;
     color: white;
+    word-wrap: break-word;
 }
 #recipe-img {
     margin-top:px;

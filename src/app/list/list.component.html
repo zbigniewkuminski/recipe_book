@@ -1,7 +1,7 @@
 <p> <span class="glyphicon glyphicon-th-list"></span>  {{featureTitle}}</p>
 <div id="main" class="container-fluid">
   <br>
-  <ul *ngFor="let recipe of recipes">
+  <ul *ngFor="let recipe of recipes; let i = index">
     <div class="row">
       <div id="ingredients" class="col-md-2">
         <h2>Składniki:</h2>
@@ -9,7 +9,8 @@
           <li>{{ ing.name }} ({{ing.amount}})</li>
         </ul>
       </div>
-      <div id="recipe-details" class="col-md-10">
+
+      <div id="recipe-details" class="col-md-9">
         <div id="recipe-img" class="col-md-4">
           <img class="img-responsive img-thumbnail" style="color: black" alt="Nie wczytano obrazu." src=' {{recipe.imageURL}} '>
         </div>
@@ -18,7 +19,11 @@
           {{ recipe.description }}
         </div>
       </div>
+      <div class="col-md-1">
+        <button class="btn btn-danger pull-right" (click)="deleteRecipe(i)">Usuń <span class="glyphicon glyphicon-trash"></span></button>
+      </div>
     </div>
+
     <hr>
   </ul>
 </div>
