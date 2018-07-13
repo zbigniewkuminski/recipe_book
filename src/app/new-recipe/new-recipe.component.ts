@@ -25,7 +25,7 @@ export class NewRecipeComponent implements OnInit {
   newRecipeImgUrl = '';
   newRecipeDesc = '';
 
-  constructor(private recipeService :AddRecipeService) { }
+  constructor(private recipeService: AddRecipeService) { }
   ngOnInit() {
   }
 
@@ -77,7 +77,7 @@ export class NewRecipeComponent implements OnInit {
     this.newRecipeDesc = '';
   }
   createNewRecipe() {
-    if(this.newRecipeName !== '' && this.newRecipeDesc !== '' && this.ingredients.length !== 0) {
+    if (this.newRecipeName !== '' && this.newRecipeDesc !== '' && this.ingredients.length !== 0) {
       this.newRecipe.name = this.newRecipeName;
       this.newRecipe.ingredients = this.ingredients;
       this.newRecipe.description = this.newRecipeDesc;
@@ -85,13 +85,18 @@ export class NewRecipeComponent implements OnInit {
 
       this.recipeService.addNewRecipe(this.newRecipe);
 
-      alert("Utworzono nowy przepis");      
+      alert("Utworzono nowy przepis");
       this.clearIngredientsList();
       this.newRecipeName = '';
       this.newRecipeImgUrl = '';
       this.newRecipeDesc = '';
     } else {
       alert("Wypełnij wszystkie pola");
+    }
+  }
+  isCorrect() {
+    if (this.newIngredientAmount < 1 || this.newIngredientAmount > 99) {
+      this.newIngredientAmount = 1;
     }
   }
 }

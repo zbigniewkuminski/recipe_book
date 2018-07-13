@@ -1,4 +1,14 @@
 #main {
     background-color: rgb(43, 43, 43);
     color: white;
+    min-height: 500px;
+    margin-bottom: 15px;
+}
+.recipeButton {
+    background-color: transparent;
+    border: none;
+    color: blue;
+}
+p {
+    font-size: 32px;
 }

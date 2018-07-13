@@ -4,12 +4,12 @@
 
         <div class="col-md-4 newRecipeInput">
             <label class="newRecipeLabel" for="inputName">Podaj nazwę przepisu:</label>
-            <input type="text" class="form form-control" placeholder="Podaj nazwę przepisu" [(ngModel)]="newRecipeName">
+            <input type="text" class="form form-control" placeholder="Podaj nazwę przepisu" [(ngModel)]="newRecipeName" IngCorrAmount>
         </div>
 
         <div class="col-md-4 newRecipeInput">
             <label class="newRecipeLabel" for="ingredientName">Podaj składniki:</label>
-            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredientName">
+            <input type="text" class="form form-control" placeholder="Podaj składniki" [(ngModel)]="newIngredientName" IngCorrAmount>
 
             <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                 <li>
@@ -23,11 +23,14 @@
 
         <div class="col-md-2">
             <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
-            <input class="form form-control text-center" type="text" [(ngModel)]="newIngredientAmount" min="1">
+            <input class="form form-control text-center" type="number" (change)="isCorrect()" [(ngModel)]="newIngredientAmount" min="1"
+                max="99" IngCorrAmount>
             <div class="row">
 
                 <div class="col-md-6">
-                    <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj  <span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="btn btn-primary btn-sm newRecipeButton" (click)="addIngredient()">Dodaj
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
                 </div>
 
                 <div class="col-md-6">
@@ -43,12 +46,12 @@
 
     <div class="row col-md-12">
         <label for="ingredientImagePath" class="newRecipeLabel">Podaj URL zdjęcia przepisu:</label>
-        <input type="text" class="form form-control" placeholder="Wpisz adres URL" [(ngModel)]="newRecipeImgUrl">
+        <input type="text" class="form form-control" placeholder="Wpisz adres URL" [(ngModel)]="newRecipeImgUrl" IngCorrAmount>
     </div>
 
     <div class="rowNewRecipeInput">
         <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
-        <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę" [(ngModel)]="newRecipeDesc"></textarea>
+        <textarea class="form form-control" placeholder="Podaj dokładny przepis na potrawę" [(ngModel)]="newRecipeDesc" IngCorrAmount></textarea>
     </div>
 
     <div class="row">
@@ -63,7 +66,7 @@
 
 
     <div class="row" *ngIf="newRecipeName !='' || newRecipeDesc !='' || ingredients.length != 0">
-            <hr>
+        <hr>
         <p>Podgląd:</p>
         <div id="ingredients" class="col-md-2">
             <h2>Składniki:</h2>

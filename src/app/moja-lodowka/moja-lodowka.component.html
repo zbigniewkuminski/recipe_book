@@ -1,15 +1,37 @@
-<div id="main" class="container container-fluid col-md-12">
+<div id="main" class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <p>Twoja lodówka:</p>
-        <ul *ngFor="let ingredient of myFridgeIngredients">
-          <li>
-            {{ingredient.name}} ({{ingredient.amount}})
-          </li>
+    <div class="col-md-2">
+      <p>Zapasy:</p>
+      <ul *ngFor="let ingredient of myFridgeIngredients">
+        <li>
+          {{ingredient.name}} ({{ingredient.amount}})
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-3">
+        <p style="font-size: 24px">Przepisy:</p>
+        <ul *ngFor="let recipe of recipes; let i = index">
+          <button class="recipeButton" (click)="selectedRecipe(i)">{{recipe.name}}</button>
         </ul>
-    </div>
-    <div class="col-md-8">
-        
-    </div>
+      </div>
+      <div class="col-md-9" *ngIf="selectedRecipeName != ''">
+        <p>Wybrałeś przepis na: {{selectedRecipeName}}</p>
+          <div class="row">
+              <div class="col-md-6">
+                  <h3>Wymagane składniki:</h3>
+                  <ul *ngFor="let ingredient of selectedRecipeIngredients; let i = index">
+                    <li>{{ingredient.name}} ({{ingredient.amount}})</li>
+                  </ul>
+              </div>
+              <div class="col-md-6">
+                <h3>Brakujące składniki</h3>
+                <ul *ngFor="let ingredient of missingRecipeIngredients; let i = index">
+                    <li>{{ingredient.name}} ({{ingredient.amount}})</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </div>   
   </div>
 </div>

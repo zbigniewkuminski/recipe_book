@@ -9,6 +9,7 @@ import { Highlight } from './directives/highlight.directive';
 import { AddRecipeService } from './service/add-recipe.service';
 import { Routes, RouterModule } from '@angular/router';
 import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
+import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     ShoppingListComponent,
     NewRecipeComponent,
     Highlight,
-    MojaLodowkaComponent
+    MojaLodowkaComponent,
+    IngredientAmountValidation
   ],
   imports: [
     BrowserModule,
