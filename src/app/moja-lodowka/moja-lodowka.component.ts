@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 import { AddRecipeService } from '../service/add-recipe.service';
+import { AddShoppingListService } from '../service/addShoppingList.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MojaLodowkaComponent implements OnInit {
     new Ingredient('pomidory', 3)
   ];
 
-  constructor(private recipeService: AddRecipeService) { }
+  constructor(private recipeService: AddRecipeService,
+              private shoppingListService: AddShoppingListService) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
@@ -55,5 +57,9 @@ export class MojaLodowkaComponent implements OnInit {
       }
       this.counter = 0;
     }
+  }
+
+  addToShoppingList() {
+    this.shoppingListService.addMissingIngredients(this.missingRecipeIngredients);
   }
 }

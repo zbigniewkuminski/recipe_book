@@ -1,32 +1,37 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
-  selector: 'app-shopping-list',
+  selector: 'app-sho pping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  shoppingList: Array<string> = [];
-  newShoppingListItem: string ='';
-  errorMessage: string;
+  shoppingList: Ingredient[] = [];
+  @Output() listMissingIngredients: Ingredient[] = [];
+  newShoppingListItemName: string = '';
+  newShoppingListItemAmount: number = 1;
+  errorMessage: string = '';
+
   @Input() featureTitle: string;
   constructor() { }
 
   ngOnInit() {
+
   }
+  
   addToShoppingList() {
-    if (this.newShoppingListItem === '') {
+    if (this.newShoppingListItemName === '' ) {
       this.errorMessage = 'Podaj co chcesz dopisać do listy';
     } else {
-      if (!this.shoppingList.includes(this.newShoppingListItem)) {
-        this.shoppingList.push(this.newShoppingListItem);
-        this.errorMessage = '';
-      } else {
-        this.errorMessage = 'Na liście jest już ';
-      }
+      this.shoppingList.push({ "name": this.newShoppingListItemName, "amount": this.newShoppingListItemAmount });
+      this.errorMessage = '';
     }
   }
-  removeFromShoppingList() {
 
+  isCorrect() {
+    if (this.newShoppingListItemAmount < 1 || this.newShoppingListItemAmount > 99) {
+      this.newShoppingListItemAmount = 1;
+    }
   }
 }
