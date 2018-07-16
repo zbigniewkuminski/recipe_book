@@ -3,6 +3,7 @@ import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 import { AddRecipeService } from '../service/add-recipe.service';
 import { AddShoppingListService } from '../service/addShoppingList.service';
+import { MyFridgeServiceService } from '../service/my-fridge-service.service';
 
 
 @Component({
@@ -18,18 +19,15 @@ export class MojaLodowkaComponent implements OnInit {
   missingIngredient: Ingredient = new Ingredient("", 0);
   counter = 0;
 
-  myFridgeIngredients: Ingredient[] = [
-    new Ingredient('jajka', 3),
-    new Ingredient('masło', 1),
-    new Ingredient('woda', 2),
-    new Ingredient('pomidory', 3)
-  ];
+  myFridgeIngredients: Ingredient[] = [];
 
   constructor(private recipeService: AddRecipeService,
-    private shoppingListService: AddShoppingListService) { }
+    private shoppingListService: AddShoppingListService,
+    private myFridgeService: MyFridgeServiceService) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
+    this.myFridgeIngredients = this.myFridgeService.myFridgeIngredients;
   }
 
   selectedRecipe(id: number) {

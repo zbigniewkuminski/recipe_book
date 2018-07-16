@@ -11,7 +11,8 @@ export class AddShoppingListService {
 
     addMissingIngredients(missingIng: Ingredient[]) {
         this.ingredientsArray = missingIng;
-        console.log('w serwisie!!');
-        console.log(this.ingredientsArray);
+    }
+    resetMissingIngredients() {
+        this.ingredientsArray = [];
     }
 }

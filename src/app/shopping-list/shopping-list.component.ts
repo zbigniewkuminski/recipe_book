@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { AddShoppingListService } from '../service/addShoppingList.service';
+import { MyFridgeServiceService } from '../service/my-fridge-service.service';
 
 @Component({
   selector: 'app-sho pping-list',
@@ -17,7 +18,8 @@ export class ShoppingListComponent implements OnInit {
 
   @Input() featureTitle: string;
 
-  constructor(private shoppingService :AddShoppingListService) { }
+  constructor(private shoppingService :AddShoppingListService,
+  private myFridgeService: MyFridgeServiceService) { }
 
   ngOnInit() {
     this.shoppingList = this.shoppingService.ingredientsArray;
@@ -43,6 +45,13 @@ export class ShoppingListComponent implements OnInit {
     this.shoppingList.splice(id, 1);
   }
   clearShoppingList() {
+    this.newShoppingListItemName = '';
+    this.newShoppingListItemAmount = 1;
+    this.shoppingList = [];
+  }
+  buyIngredients() {
+    this.myFridgeService.buyIngredients(this.shoppingList);
+    this.shoppingService.resetMissingIngredients();
     this.newShoppingListItemName = '';
     this.newShoppingListItemAmount = 1;
     this.shoppingList = [];

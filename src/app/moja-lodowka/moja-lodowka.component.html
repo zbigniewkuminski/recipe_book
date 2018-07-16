@@ -25,11 +25,14 @@
             </ul>
           </div>
           <div class="col-md-6">
-            <h3>Brakujące składniki</h3>
-            <ul *ngFor="let ingredient of missingRecipeIngredients; let i = index">
+            <h3 *ngIf = "missingRecipeIngredients.length != 0; else noMissingIngredients">Brakujące składniki:</h3>
+            <ul *ngFor="let ingredient of missingRecipeIngredients; let i = index" >
               <li>{{ingredient.name}} ({{ingredient.amount}})</li>
             </ul>
-            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-success">Przejdź do listy zakupów</button>
+            <ng-template #noMissingIngredients>
+              <h3>Posiadasz wszystkie potrzebne składniki.</h3>
+            </ng-template>
+            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-success" *ngIf = "missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
           </div>
         </div>
       </div>
