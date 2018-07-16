@@ -11,6 +11,7 @@
     <div class="col-md-10">
       <div class="col-md-3">
         <p style="font-size: 24px">Przepisy:</p>
+        <input id="searchRecipe" class="form-control" placeholder="Szukaj">
         <ul *ngFor="let recipe of recipes; let i = index">
           <button class="recipeButton" (click)="selectedRecipe(i)">{{recipe.name}}</button>
         </ul>

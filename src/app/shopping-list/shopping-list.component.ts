@@ -55,5 +55,6 @@ export class ShoppingListComponent implements OnInit {
     this.newShoppingListItemName = '';
     this.newShoppingListItemAmount = 1;
     this.shoppingList = [];
+    alert("Dokonano zakupu. Sprawdź zapasy w zakładce `Moja lodówka`.");
   }
 }

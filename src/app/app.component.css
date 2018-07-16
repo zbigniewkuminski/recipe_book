@@ -39,14 +39,14 @@ input {
     width: 50px;
 }
 #recipe-img {
-    margin-top:1px;
+    margin-top: 1px;
 }
 #main-container {
     background-color: black;
 }
 #navbar {
     background-color:  rgb(43, 43, 43);
-    border:none;
+    border: none;
     border-bottom: 2px solid white;
     padding-bottom: 10px;
 }
