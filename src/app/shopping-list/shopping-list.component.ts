@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { AddShoppingListService } from '../service/addShoppingList.service';
 
 @Component({
   selector: 'app-sho pping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  styleUrls: ['./shopping-list.component.css'],
+
 })
 export class ShoppingListComponent implements OnInit {
   shoppingList: Ingredient[] = [];
@@ -14,10 +16,11 @@ export class ShoppingListComponent implements OnInit {
   errorMessage: string = '';
 
   @Input() featureTitle: string;
-  constructor() { }
+
+  constructor(private shoppingService :AddShoppingListService) { }
 
   ngOnInit() {
-
+    this.shoppingList = this.shoppingService.ingredientsArray;
   }
   
   addToShoppingList() {
@@ -26,6 +29,8 @@ export class ShoppingListComponent implements OnInit {
     } else {
       this.shoppingList.push({ "name": this.newShoppingListItemName, "amount": this.newShoppingListItemAmount });
       this.errorMessage = '';
+      this.newShoppingListItemName = '';
+      this.newShoppingListItemAmount = 1;
     }
   }
 
@@ -33,5 +38,13 @@ export class ShoppingListComponent implements OnInit {
     if (this.newShoppingListItemAmount < 1 || this.newShoppingListItemAmount > 99) {
       this.newShoppingListItemAmount = 1;
     }
+  }
+  removeFromList(id: number) {
+    this.shoppingList.splice(id, 1);
+  }
+  clearShoppingList() {
+    this.newShoppingListItemName = '';
+    this.newShoppingListItemAmount = 1;
+    this.shoppingList = [];
   }
 }

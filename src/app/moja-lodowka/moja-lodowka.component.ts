@@ -15,7 +15,7 @@ export class MojaLodowkaComponent implements OnInit {
   selectedRecipeName = '';
   selectedRecipeIngredients: Ingredient[] = [];
   missingRecipeIngredients: Ingredient[] = [];
-  missingIngredient: Ingredient = new Ingredient("",0);
+  missingIngredient: Ingredient = new Ingredient("", 0);
   counter = 0;
 
   myFridgeIngredients: Ingredient[] = [
@@ -26,7 +26,7 @@ export class MojaLodowkaComponent implements OnInit {
   ];
 
   constructor(private recipeService: AddRecipeService,
-              private shoppingListService: AddShoppingListService) { }
+    private shoppingListService: AddShoppingListService) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
@@ -40,19 +40,19 @@ export class MojaLodowkaComponent implements OnInit {
   }
 
   private missingIngredients() {
-    for(let ingredientRecipe of this.selectedRecipeIngredients) {
-      for(let ingredientFridge of this.myFridgeIngredients) {
-        if(ingredientRecipe.name !== ingredientFridge.name){
-          this.counter ++;
+    for (let ingredientRecipe of this.selectedRecipeIngredients) {
+      for (let ingredientFridge of this.myFridgeIngredients) {
+        if (ingredientRecipe.name !== ingredientFridge.name) {
+          this.counter++;
         } else {
-          if(ingredientRecipe.amount > ingredientFridge.amount) {
+          if (ingredientRecipe.amount > ingredientFridge.amount) {
             this.missingIngredient.amount = ingredientRecipe.amount - ingredientFridge.amount;
             this.missingIngredient.name = ingredientRecipe.name;
             this.missingRecipeIngredients.push(this.missingIngredient);
           }
         }
       }
-      if(this.counter === this.myFridgeIngredients.length) {
+      if (this.counter === this.myFridgeIngredients.length) {
         this.missingRecipeIngredients.push(ingredientRecipe);
       }
       this.counter = 0;

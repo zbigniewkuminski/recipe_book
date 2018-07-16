@@ -5,13 +5,13 @@ import { Ingredient } from "../shared/ingredient.model";
     providedIn: 'root'
 })
 export class AddShoppingListService {
-    emitIngredientArray = new EventEmitter<Ingredient []>();
     ingredientsArray: Ingredient[] = [];
 
     constructor() { }
 
     addMissingIngredients(missingIng: Ingredient[]) {
         this.ingredientsArray = missingIng;
+        console.log('w serwisie!!');
         console.log(this.ingredientsArray);
     }
 }

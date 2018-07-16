@@ -14,10 +14,13 @@
 
         <div id="shoppingList" class="col-md-4 container-fluid" *ngIf="shoppingList.length !== 0">
             <p>Lista zakupów:</p>
-            <ul *ngFor="let item of shoppingList">
-                <li> {{item.name}} ({{item.amount}}) </li>
+            <ul *ngFor="let item of shoppingList; let i = index">
+                <li> {{item.name}} ({{item.amount}}) 
+                    <button class="btn btn-xs btn-danger" (click) = "removeFromList(i)"> <span class="glyphicon glyphicon-remove"></span></button>
+                </li>
             </ul>
-            <button class="btn btn-primary pull-right">Kupuj</button>
+            <button class="btn btn-primary shoppingListButtons">Kupuj</button>
+            <button class="btn btn-danger shoppingListButtons" (click) = "clearShoppingList()">Wyczyść</button>
         </div>
 
     </div>
