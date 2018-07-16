@@ -31,3 +31,8 @@ p {
 .shoppingListButtons {
     margin: 5px;
 }
+#errorMsg {
+    padding-top: 15px;
+    margin-top: 20px;
+    text-align: center;
+}

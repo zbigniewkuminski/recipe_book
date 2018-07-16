@@ -12,7 +12,7 @@
 
             <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                 <li>
-                    {{ing.name}} ({{ing.amount}})
+                    {{ing.name}} ({{ing.amount}} {{ing.unit}})
                     <button class="btn-xs btn btn-danger" (click)="deleteIngredient(i)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -32,9 +32,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="ingredientUnit" class="newRecipeLabel">Jednostka:</label>
-                    <button class="btn dropdown-toggle form-control">
-                        <span class="caret"></span>
-                    </button>
+                    <input type="text" class="form form-control text-center" placeholder="Jednostka" [(ngModel)]="newIngredientUnit" IngCorrAmount>
                     <button class="btn btn-danger btn-sm newRecipeButton form-control" (click)="clearIngredientsList()">Wyczyść</button>
 
                 </div>
@@ -72,7 +70,7 @@
         <div id="ingredients" class="col-md-2">
             <h2>Składniki:</h2>
             <ul *ngFor="let ing of ingredients">
-                <li>{{ ing.name }} ({{ing.amount}})</li>
+                <li>{{ ing.name }} ({{ing.amount}} {{ing.unit}})</li>
             </ul>
         </div>
 

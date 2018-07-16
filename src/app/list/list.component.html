@@ -5,7 +5,7 @@
       <div id="ingredients" class="col-md-2">
         <h2>Składniki:</h2>
         <ul *ngFor="let ing of recipe.ingredients">
-          <li>{{ ing.name }} ({{ing.amount}})</li>
+          <li>{{ ing.name }} ({{ing.amount}} {{ing.unit}})</li>
         </ul>
       </div>
 

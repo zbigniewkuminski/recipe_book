@@ -13,12 +13,13 @@ import { MyFridgeServiceService } from '../service/my-fridge-service.service';
 })
 export class MojaLodowkaComponent implements OnInit {
   recipes: Recipe[] = [];
+  whatCanIPrepareList: Recipe[] = [];
+  allRecipes = true;
   selectedRecipeName = '';
   selectedRecipeIngredients: Ingredient[] = [];
   missingRecipeIngredients: Ingredient[] = [];
-  missingIngredient: Ingredient = new Ingredient("", 0);
+  missingIngredient: Ingredient = new Ingredient("", 0, "");
   counter = 0;
-
   myFridgeIngredients: Ingredient[] = [];
 
   constructor(private recipeService: AddRecipeService,
@@ -28,11 +29,17 @@ export class MojaLodowkaComponent implements OnInit {
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
     this.myFridgeIngredients = this.myFridgeService.myFridgeIngredients;
+    this.whatCanIPrepare();
   }
 
   selectedRecipe(id: number) {
-    this.selectedRecipeName = this.recipes[id].name;
-    this.selectedRecipeIngredients = this.recipes[id].ingredients;
+    if(this.allRecipes) {
+      this.selectedRecipeName = this.recipes[id].name;
+      this.selectedRecipeIngredients = this.recipes[id].ingredients;
+    } else {
+      this.selectedRecipeName = this.whatCanIPrepareList[id].name;
+      this.selectedRecipeIngredients = this.whatCanIPrepareList[id].ingredients;
+    }
     this.missingRecipeIngredients = [];
     this.missingIngredients();
   }
@@ -46,6 +53,7 @@ export class MojaLodowkaComponent implements OnInit {
           if (ingredientRecipe.amount > ingredientFridge.amount) {
             this.missingIngredient.amount = ingredientRecipe.amount - ingredientFridge.amount;
             this.missingIngredient.name = ingredientRecipe.name;
+            this.missingIngredient.unit = ingredientRecipe.unit;
             this.missingRecipeIngredients.push(this.missingIngredient);
           }
         }
@@ -59,5 +67,25 @@ export class MojaLodowkaComponent implements OnInit {
 
   addToShoppingList() {
     this.shoppingListService.addMissingIngredients(this.missingRecipeIngredients);
+  }
+
+  whatCanIPrepare() {
+    this.whatCanIPrepareList = [];
+    for (let recipe of this.recipes) {
+      this.counter = 0;
+      for (let ingredientRecipe of recipe.ingredients) {
+        for (let ingredientFridge of this.myFridgeIngredients) {
+          if (ingredientRecipe.name === ingredientFridge.name && ingredientRecipe.amount <= ingredientFridge.amount) {
+            this.counter++;
+          }
+        }
+      }
+      if (recipe.ingredients.length === this.counter) {
+        this.whatCanIPrepareList.push(recipe);
+      }
+    }
+  }
+  swapRecipeList() {
+    this.allRecipes = !this.allRecipes;
   }
 }

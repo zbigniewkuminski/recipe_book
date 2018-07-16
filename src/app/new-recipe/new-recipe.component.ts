@@ -13,7 +13,7 @@ export class NewRecipeComponent implements OnInit {
 
   newIngredientName = '';
   newIngredientAmount = 1;
-  newIngredientImgPath = '';
+  newIngredientUnit = '';
   sameIngredientCounter = 0;
   ingredients: Ingredient[] = [];
 
@@ -51,7 +51,7 @@ export class NewRecipeComponent implements OnInit {
         }
       }
       if (this.errorStatus === false || this.ingredients.length === 0) {
-        this.ingredients.push({ "name": this.newIngredientName, "amount": this.newIngredientAmount });
+        this.ingredients.push({ "name": this.newIngredientName, "amount": this.newIngredientAmount, "unit":this.newIngredientUnit });
         this.newIngredientName = '';
         this.newIngredientAmount = 1;
         this.errorStatus = false;

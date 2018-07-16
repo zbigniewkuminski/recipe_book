@@ -4,22 +4,27 @@
             <h3> Przygotuj listę zakupów:</h3>
             <hr>
             <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać">
-            <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()" type="number" min="1" max="99">
+            <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()"
+                type="number" min="1" max="99">
             <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()">Dodaj do listy
                 <span class="glyphicon glyphicon-shopping-cart"></span>
             </button>
-            <h4 class="errorMessage" *ngIf="!errorMessage == ''">{{ errorMessage }} {{ newShoppingListItem }}</h4>
+            <div id="errorMsg">
+                <h5 class="errorMessage" *ngIf="!errorMessage == ''">{{ errorMessage }} {{ newShoppingListItem }}</h5>
+            </div>
         </div>
 
         <div id="shoppingList" class="col-md-4 container-fluid" *ngIf="shoppingList.length !== 0">
             <p>Lista zakupów:</p>
             <ul *ngFor="let item of shoppingList; let i = index">
-                <li> {{item.name}} ({{item.amount}}) 
-                    <button class="btn btn-xs btn-danger" (click) = "removeFromList(i)"> <span class="glyphicon glyphicon-remove"></span></button>
+                <li> {{item.name}} ({{item.amount}})
+                    <button class="btn btn-xs btn-danger" (click)="removeFromList(i)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
                 </li>
             </ul>
-            <button class="btn btn-primary shoppingListButtons" (click) = "buyIngredients()">Kupuj</button>
-            <button class="btn btn-danger shoppingListButtons" (click) = "clearShoppingList()">Wyczyść</button>
+            <button class="btn btn-primary shoppingListButtons" (click)="buyIngredients()">Kupuj</button>
+            <button class="btn btn-danger shoppingListButtons" (click)="clearShoppingList()">Wyczyść</button>
         </div>
 
     </div>

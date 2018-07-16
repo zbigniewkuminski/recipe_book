@@ -6,12 +6,9 @@ import { Recipe } from '../shared/recipe.model';
 })
 export class AddRecipeService {
   recipesArray: Recipe[] = [ 
-    new Recipe('kanapka',[{name: "chleb", amount: 2},{name: "masło", amount: 1}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
-    new Recipe('jajecznica',[{name: "jajka", amount: 4},{name: "chleb", amount: 2}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
-    new Recipe('ryż',[{name: "ryż", amount: 1}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
-    new Recipe('kanapka',[{name: "chleb", amount: 2},{name: "masło", amount: 1}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
-    new Recipe('jajecznica',[{name: "jajka", amount: 4},{name: "chleb", amount: 2}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
-    new Recipe('ryż',[{name: "ryż", amount: 1}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
+    new Recipe('kanapka',[{name: "chleb", amount: 2, unit: "szt"},{name: "masło", amount: 1, unit: "szt"}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
+    new Recipe('jajecznica',[{name: "jajka", amount: 4, unit: "szt"},{name: "chleb", amount: 2, unit: "szt"}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
+    new Recipe('ryż',[{name: "ryż", amount: 1, unit: "kg"}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
   ];
   constructor() { }
 

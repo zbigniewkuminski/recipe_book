@@ -14,6 +14,7 @@ export class ShoppingListComponent implements OnInit {
   @Output() listMissingIngredients: Ingredient[] = [];
   newShoppingListItemName: string = '';
   newShoppingListItemAmount: number = 1;
+  newShoppingListItemUnit: string = '';
   errorMessage: string = '';
 
   @Input() featureTitle: string;
@@ -29,7 +30,7 @@ export class ShoppingListComponent implements OnInit {
     if (this.newShoppingListItemName === '' ) {
       this.errorMessage = 'Podaj co chcesz dopisać do listy';
     } else {
-      this.shoppingList.push({ "name": this.newShoppingListItemName, "amount": this.newShoppingListItemAmount });
+      this.shoppingList.push({ "name": this.newShoppingListItemName, "amount": this.newShoppingListItemAmount, "unit": this.newShoppingListItemUnit });
       this.errorMessage = '';
       this.newShoppingListItemName = '';
       this.newShoppingListItemAmount = 1;
@@ -54,6 +55,7 @@ export class ShoppingListComponent implements OnInit {
     this.shoppingService.resetMissingIngredients();
     this.newShoppingListItemName = '';
     this.newShoppingListItemAmount = 1;
+    this.newShoppingListItemUnit = '';
     this.shoppingList = [];
     alert("Dokonano zakupu. Sprawdź zapasy w zakładce `Moja lodówka`.");
   }

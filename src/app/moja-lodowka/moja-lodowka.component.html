@@ -4,36 +4,44 @@
       <p>Zapasy:</p>
       <ul *ngFor="let ingredient of myFridgeIngredients">
         <li>
-          {{ingredient.name}} ({{ingredient.amount}})
+          {{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})
         </li>
       </ul>
+      <button class="btn btn-success" (click)="swapRecipeList()">Co mogę ugotować?</button>
     </div>
     <div class="col-md-10">
-      <div class="col-md-3">
+      <div class="col-md-3" *ngIf="allRecipes; else albeRecipes">
         <p style="font-size: 24px">Przepisy:</p>
-        <input id="searchRecipe" class="form-control" placeholder="Szukaj">
         <ul *ngFor="let recipe of recipes; let i = index">
           <button class="recipeButton" (click)="selectedRecipe(i)">{{recipe.name}}</button>
         </ul>
       </div>
+      <ng-template #albeRecipes>
+        <div class="col-md-3">
+          <p style="font-size: 24px">Przepisy:</p>
+          <ul *ngFor="let recipe of whatCanIPrepareList; let i = index">
+            <button class="recipeButton" (click)="selectedRecipe(i)">{{recipe.name}}</button>
+          </ul>
+        </div>
+      </ng-template>
       <div class="col-md-9" *ngIf="selectedRecipeName != ''">
         <p>Wybrałeś przepis na: {{selectedRecipeName}}</p>
         <div class="row">
           <div class="col-md-6">
             <h3>Wymagane składniki:</h3>
             <ul *ngFor="let ingredient of selectedRecipeIngredients; let i = index">
-              <li>{{ingredient.name}} ({{ingredient.amount}})</li>
+              <li>{{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})</li>
             </ul>
           </div>
           <div class="col-md-6">
-            <h3 *ngIf = "missingRecipeIngredients.length != 0; else noMissingIngredients">Brakujące składniki:</h3>
-            <ul *ngFor="let ingredient of missingRecipeIngredients; let i = index" >
-              <li>{{ingredient.name}} ({{ingredient.amount}})</li>
+            <h3 *ngIf="missingRecipeIngredients.length !=0; else noMissingIngredients">Brakujące składniki:</h3>
+            <ul *ngFor="let ingredient of missingRecipeIngredients; let i = index">
+              <li>{{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})</li>
             </ul>
             <ng-template #noMissingIngredients>
               <h3>Posiadasz wszystkie potrzebne składniki. Bierz się za gotowanie.</h3>
             </ng-template>
-            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-success" *ngIf = "missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
+            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-success" *ngIf="missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
           </div>
         </div>
       </div>
