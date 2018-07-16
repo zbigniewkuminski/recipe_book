@@ -9,6 +9,9 @@ export class AddRecipeService {
     new Recipe('kanapka',[{name: "chleb", amount: 2},{name: "masło", amount: 1}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
     new Recipe('jajecznica',[{name: "jajka", amount: 4},{name: "chleb", amount: 2}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
     new Recipe('ryż',[{name: "ryż", amount: 1}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
+    new Recipe('kanapka',[{name: "chleb", amount: 2},{name: "masło", amount: 1}],'./assets/images/kanapka.jpg','Pokrój chleb. Posmaruj masłem.'),
+    new Recipe('jajecznica',[{name: "jajka", amount: 4},{name: "chleb", amount: 2}],'../assets/images/jajecznica.jpg','Rozgrzej patelnię. Wbij jajka.'),    
+    new Recipe('ryż',[{name: "ryż", amount: 1}],'../assets/images/ryż.jpg','Ugotuj ryż.'),  
   ];
   constructor() { }
 

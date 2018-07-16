@@ -30,7 +30,7 @@
               <li>{{ingredient.name}} ({{ingredient.amount}})</li>
             </ul>
             <ng-template #noMissingIngredients>
-              <h3>Posiadasz wszystkie potrzebne składniki.</h3>
+              <h3>Posiadasz wszystkie potrzebne składniki. Bierz się za gotowanie.</h3>
             </ng-template>
             <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-success" *ngIf = "missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
           </div>

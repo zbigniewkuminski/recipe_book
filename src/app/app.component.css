@@ -13,7 +13,6 @@ input {
     margin-top: 5px;
     color: white;
 }
-
 #navbar-elements {
     margin-top:10px;
 }
@@ -29,7 +28,6 @@ input {
     text-decoration-line: underline;
     text-decoration-color: rgb(146, 0, 0);
 }
-
 #recipe-instructions { 
     padding: 15px;
     font-family: "Monospace";
@@ -48,8 +46,21 @@ input {
 }
 #navbar {
     background-color:  rgb(43, 43, 43);
+    border:none;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
 }
 #navbar-button:hover {
-    background-color: rgb(155, 155, 155);
-    color: black;
+    font-weight: bold;
 }   
+#divNavbar {
+    position: sticky;
+    z-index : 100;
+    top: 0;
+}
+@media only screen and (max-width: 990px) {
+    #divNavbar {
+        position: static;
+        z-index: 0;
+    }
+}
