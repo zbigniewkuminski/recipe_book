@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -10,8 +13,7 @@ import { AddRecipeService } from './service/add-recipe.service';
 import { Routes, RouterModule } from '@angular/router';
 import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
-
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule,MatInputModule } from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
@@ -33,9 +35,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule
   ],
   providers: [AddRecipeService],
   bootstrap: [AppComponent]
