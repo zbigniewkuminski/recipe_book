@@ -50,9 +50,16 @@ input {
     border-bottom: 2px solid white;
     padding-bottom: 10px;
 }
+#navbar-button {
+    text-align: center;
+    min-height: 70px;
+}   
 #navbar-button:hover {
     font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }   
+
 #divNavbar {
     position: sticky;
     z-index : 100;
@@ -63,4 +70,10 @@ input {
         position: static;
         z-index: 0;
     }
+}
+.activeWindow {
+    font-weight: bold;
+    font-size: 20px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
 }

@@ -26,15 +26,22 @@
                     <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
                     <input class="form form-control text-center" type="number" (change)="isCorrect()" [(ngModel)]="newIngredientAmount" min="1"
                         max="99" IngCorrAmount>
+
+                </div>
+                <div class="col-md-6">
+                    <label for="ingredientUnit" class="newRecipeLabel">Jednostka:</label>
+                    <input type="text" class="form form-control text-center" placeholder="Jednostka" [(ngModel)]="newIngredientUnit" IngCorrAmount>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <button class="btn btn-primary btn-sm newRecipeButton form-control" (click)="addIngredient()">Dodaj
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </div>
                 <div class="col-md-6">
-                    <label for="ingredientUnit" class="newRecipeLabel">Jednostka:</label>
-                    <input type="text" class="form form-control text-center" placeholder="Jednostka" [(ngModel)]="newIngredientUnit" IngCorrAmount>
                     <button class="btn btn-danger btn-sm newRecipeButton form-control" (click)="clearIngredientsList()">Wyczyść</button>
-
                 </div>
             </div>
             <div class="col-md-12">

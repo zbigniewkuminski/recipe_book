@@ -19,15 +19,15 @@ export class ShoppingListComponent implements OnInit {
 
   @Input() featureTitle: string;
 
-  constructor(private shoppingService :AddShoppingListService,
-  private myFridgeService: MyFridgeServiceService) { }
+  constructor(private shoppingService: AddShoppingListService,
+    private myFridgeService: MyFridgeServiceService) { }
 
   ngOnInit() {
     this.shoppingList = this.shoppingService.ingredientsArray;
   }
-  
+
   addToShoppingList() {
-    if (this.newShoppingListItemName === '' ) {
+    if (this.newShoppingListItemName === '') {
       this.errorMessage = 'Podaj co chcesz dopisać do listy';
     } else {
       this.shoppingList.push({ "name": this.newShoppingListItemName, "amount": this.newShoppingListItemAmount, "unit": this.newShoppingListItemUnit });

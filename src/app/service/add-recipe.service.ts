@@ -9,7 +9,7 @@ export class AddRecipeService {
     new Recipe('kanapka', [{ name: "chleb", amount: 2, unit: "szt" }, { name: "masło", amount: 1, unit: "szt" }], './assets/images/kanapka.jpg', 'Pokrój chleb. Posmaruj masłem.'),
     new Recipe('jajecznica', [{ name: "jajka", amount: 4, unit: "szt" }, { name: "chleb", amount: 2, unit: "szt" }], '../assets/images/jajecznica.jpg', 'Rozgrzej patelnię. Wbij jajka.'),
     new Recipe('ryż', [{ name: "ryż", amount: 1, unit: "kg" }], '../assets/images/ryż.jpg', 'Ugotuj ryż.'),
-    new Recipe('chleb z masłem i sałatą', [{ name: "chleb", amount: 1, unit: "szt" },{ name: "masło", amount: 1, unit: "szt" },{ name: "sałata", amount: 1, unit: "szt" }],'../assets/images/ryż.jpg', 'Ugotuj ryż.'),
+    new Recipe('chleb z masłem i sałatą', [{ name: "chleb", amount: 1, unit: "szt" }, { name: "masło", amount: 1, unit: "szt" }, { name: "sałata", amount: 1, unit: "szt" }], '../assets/images/ryż.jpg', 'Ugotuj ryż.'),
     new Recipe('chleb', [{ name: "mąka", amount: 1, unit: "kg" }], '../assets/images/ryż.jpg', 'Ugotuj ryż.'),
   ];
   constructor() { }

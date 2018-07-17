@@ -8,16 +8,16 @@
                 </div>
                 <div class="container-fluid col-md-9">
                     <ul id="navbar-elements" class="nav navbar-nav">
-                        <li id="navbar-button" class="col-md-2">
+                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow" [routerLinkActiveOptions]="{exact: true}">
                             <a routerLink="/" (click)="selectedFeature='Recipes'">Przepisy</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2">
+                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
                             <a routerLink="/shopping-list" (click)="selectedFeature='Shopping List'">Lista zakupów</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2">
+                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
                             <a routerLink="new-recipe" (click)="selectedFeature='New Recipe'">Nowy przepis</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2">
+                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
                             <a routerLink="my-fridge" (click)="selectedFeature='My fridge'">Moja lodówka</a>
                         </li>
                         <li>

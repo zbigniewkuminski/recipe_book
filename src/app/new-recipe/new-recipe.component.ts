@@ -51,7 +51,7 @@ export class NewRecipeComponent implements OnInit {
         }
       }
       if (this.errorStatus === false || this.ingredients.length === 0) {
-        this.ingredients.push({ "name": this.newIngredientName, "amount": this.newIngredientAmount, "unit":this.newIngredientUnit });
+        this.ingredients.push({ "name": this.newIngredientName, "amount": this.newIngredientAmount, "unit": this.newIngredientUnit });
         this.newIngredientName = '';
         this.newIngredientAmount = 1;
         this.errorStatus = false;

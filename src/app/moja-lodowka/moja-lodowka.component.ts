@@ -5,7 +5,6 @@ import { AddRecipeService } from '../service/add-recipe.service';
 import { AddShoppingListService } from '../service/addShoppingList.service';
 import { MyFridgeServiceService } from '../service/my-fridge-service.service';
 
-
 @Component({
   selector: 'app-moja-lodowka',
   templateUrl: './moja-lodowka.component.html',
@@ -33,7 +32,7 @@ export class MojaLodowkaComponent implements OnInit {
   }
 
   selectedRecipe(id: number) {
-    if(this.allRecipes) {
+    if (this.allRecipes) {
       this.selectedRecipeName = this.recipes[id].name;
       this.selectedRecipeIngredients = this.recipes[id].ingredients;
     } else {
@@ -87,5 +86,29 @@ export class MojaLodowkaComponent implements OnInit {
   }
   swapRecipeList() {
     this.allRecipes = !this.allRecipes;
+    this.whatCanIPrepareList = [];
+    this.whatCanIPrepare();
+  }
+
+  deleteIngredientFromFridge(i: number) {
+    this.myFridgeIngredients.splice(i, 1);
+    this.selectedRecipeName = '';
+  }
+
+  prepareMeal(recipeIng: Ingredient[]) {
+    for (let recipeIngredient of recipeIng) {
+      this.myFridgeIngredients.forEach((myFridgeIngredient, index) => {
+        if (recipeIngredient.name === myFridgeIngredient.name) {
+          if (recipeIngredient.amount === myFridgeIngredient.amount) {
+            this.myFridgeIngredients.splice(index, 1);
+            index--;
+          } else {
+            myFridgeIngredient.amount -= recipeIngredient.amount;
+          }
+        }
+      }
+    }
+    alert('Przygotowałeś posiłek');
+    this.selectedRecipeName = '';
   }
 }

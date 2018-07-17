@@ -8,9 +8,9 @@ export class MyFridgeServiceService {
   myFridgeIngredients: Ingredient[] = [
     new Ingredient('jajka', 3, 'szt'),
     new Ingredient('mleko', 3, 'l'),
-    new Ingredient('sałata', 1,'szt'),
-    new Ingredient('masło', 1,'szt'),
-    new Ingredient('chleb', 2,'szt'),
+    new Ingredient('sałata', 1, 'szt'),
+    new Ingredient('masło', 1, 'szt'),
+    new Ingredient('chleb', 2, 'szt'),
   ];
   concatIng: Ingredient[] = [];
   duplicateCounter = 0;
@@ -22,12 +22,12 @@ export class MyFridgeServiceService {
       for (let ingredientFromFridge of this.myFridgeIngredients) {
         if (ingredientBought.name === ingredientFromFridge.name) {
           ingredientFromFridge.amount += ingredientBought.amount;
-          continue;   
+          continue;
         } else {
-        this.duplicateCounter++;
+          this.duplicateCounter++;
         }
       }
-      if(this.duplicateCounter === this.myFridgeIngredients.length) {
+      if (this.duplicateCounter === this.myFridgeIngredients.length) {
         this.myFridgeIngredients.push(ingredientBought);
       }
     }
