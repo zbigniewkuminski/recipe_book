@@ -49,6 +49,7 @@ export class ShoppingListComponent implements OnInit {
     this.newShoppingListItemName = '';
     this.newShoppingListItemAmount = 1;
     this.shoppingList = [];
+    this.shoppingService.ingredientsArray = [];
   }
   buyIngredients() {
     this.myFridgeService.buyIngredients(this.shoppingList);

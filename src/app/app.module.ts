@@ -11,6 +11,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
 
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
   { path: '', component: ListComponent },
@@ -26,12 +28,14 @@ const appRoutes: Routes = [
     NewRecipeComponent,
     Highlight,
     MojaLodowkaComponent,
-    IngredientAmountValidation
+    IngredientAmountValidation,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [AddRecipeService],
   bootstrap: [AppComponent]

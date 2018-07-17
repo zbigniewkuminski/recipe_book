@@ -46,6 +46,7 @@ export class MojaLodowkaComponent implements OnInit {
 
   private missingIngredients() {
     for (let ingredientRecipe of this.selectedRecipeIngredients) {
+      this.counter = 0;
       for (let ingredientFridge of this.myFridgeIngredients) {
         if (ingredientRecipe.name !== ingredientFridge.name) {
           this.counter++;
@@ -61,7 +62,6 @@ export class MojaLodowkaComponent implements OnInit {
       if (this.counter === this.myFridgeIngredients.length) {
         this.missingRecipeIngredients.push(ingredientRecipe);
       }
-      this.counter = 0;
     }
   }
 
