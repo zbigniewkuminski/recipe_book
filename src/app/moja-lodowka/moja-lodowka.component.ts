@@ -91,7 +91,11 @@ export class MojaLodowkaComponent implements OnInit {
   }
 
   deleteIngredientFromFridge(i: number) {
-    this.myFridgeIngredients.splice(i, 1);
+    if(this.myFridgeIngredients[i].amount === 1) {
+      this.myFridgeIngredients.splice(i, 1);
+    } else {
+      this.myFridgeIngredients[i].amount--;
+    }
     this.selectedRecipeName = '';
   }
 

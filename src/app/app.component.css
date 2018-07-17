@@ -21,7 +21,7 @@ input {
     margin-bottom: 20px;
 }
 #title {
-    font-size: 40px;
+    font-size: 55px;
     font-family: "Monospace";
     font-style: oblique;
     color: white;
@@ -36,7 +36,7 @@ input {
 }
 .logo {
     height: auto;
-    width: 50px;
+    width: 60px;
 }
 #recipe-img {
     margin-top: 1px;
@@ -52,7 +52,8 @@ input {
 }
 #navbar-button {
     text-align: center;
-    min-height: 70px;
+    min-height: 80px;
+    margin-right: 10px;
 }   
 #navbar-button:hover {
     font-weight: bold;
@@ -76,4 +77,5 @@ input {
     font-size: 20px;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
+
 }
