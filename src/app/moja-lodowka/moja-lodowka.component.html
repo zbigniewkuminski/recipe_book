@@ -49,7 +49,7 @@
               <h3 style="color:lightgreen">Posiadasz wszystkie potrzebne składniki. Bierz się za gotowanie.</h3>
               <button class="btn btn-primary form-control" (click)="prepareMeal(selectedRecipeIngredients)">Gotuj</button>
             </ng-template>
-            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-primary" *ngIf="missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
+            <button routerLink="/shopping-list" (click)="addToShoppingList()" class="btn btn-primary form-control" *ngIf="missingRecipeIngredients.length != 0">Przejdź do listy zakupów</button>
           </div>
         </div>
       </div>
