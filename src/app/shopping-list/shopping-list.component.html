@@ -3,9 +3,14 @@
         <div id="listInput" class="col-md-5">
             <h3> Przygotuj listę zakupów:</h3>
             <hr>
-            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać">
-            <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()"
-                type="number" min="1" max="99">
+            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać" IngCorrAmount>
+            <div class="col-md-6">
+                <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()"
+                type="number" min="1" max="99" IngCorrAmount>
+            </div>
+            <div class="col-md-6">
+                <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemUnit" placeholder="Jednostka miary" IngCorrAmount>
+            </div>
             <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()">Dodaj do listy
                 <span class="glyphicon glyphicon-shopping-cart"></span>
             </button>
@@ -14,7 +19,7 @@
             </div>
         </div>
 
-        <div id="shoppingList" class="col-md-4 container-fluid" *ngIf="shoppingList.length !== 0">
+        <div id="shoppingList" class="col-md-4 container-fluid" *ngIf="shoppingList.length !== 0; else noShoppingList">
             <p>Lista zakupów:</p>
             <ul *ngFor="let item of shoppingList; let i = index">
                 <li> {{item.name}} ({{item.amount}})
@@ -27,5 +32,8 @@
             <button class="btn btn-danger shoppingListButtons" (click)="clearShoppingList()">Wyczyść</button>
         </div>
 
+        <ng-template #noShoppingList>
+            <h2 style="text-decoration: underline">Lista zakupów jest pusta</h2>
+        </ng-template>
     </div>
 </div>

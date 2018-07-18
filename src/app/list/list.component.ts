@@ -10,47 +10,46 @@ import { AddRecipeService } from '../service/add-recipe.service';
 
 export class ListComponent implements OnInit {
   recipes: Recipe[] = [];
+  /* 
   recipePagination: Recipe[];
-
   recipesOnPage = 3;
   page = 1;
-
   numberOfPages = 1;
-
+ */
   @Input() featureTitle: string;
   constructor(private recipeService: AddRecipeService) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
-    this.numberOfPages = this.recipes.length / this.recipesOnPage;
-    this.recipePagination = [];
-    this.loadedRecipes();
+/*     this.numberOfPages = this.recipes.length / this.recipesOnPage;
+/*     this.recipePagination = [];
+    this.loadedRecipes(); */ 
   }
 
   deleteRecipe(id: number) {
     this.recipeService.deleteRecipe(id);
   }
 
-  prevPage() {
-    this.page--;
-    this.recipePagination = [];
-    this.loadedRecipes();
-  }
+  // prevPage() {
+  //   this.page--;
+  //   this.recipePagination = [];
+  //   this.loadedRecipes();
+  // }
 
-  nextPage() {
-    this.page++;
-    this.recipePagination = [];
-    this.loadedRecipes();
-  }
+  // nextPage() {
+  //   this.page++;
+  //   this.recipePagination = [];
+  //   this.loadedRecipes();
+  // }
 
-  loadedRecipes() {
-    this.recipes.forEach((recipe, index) => {
-      if ((index >= ((this.page - 1) * this.recipesOnPage)) &&
-        (index <= (this.page * this.recipesOnPage) - 1)){
-          this.recipePagination.push(recipe);
-        }
-    });
-    console.log(this.recipePagination);
-  }
-
+  // loadedRecipes() { /* paginacja */
+  //   this.recipes.forEach((recipe, index) => {
+  //     if ((index >= ((this.page - 1) * this.recipesOnPage)) &&
+  //       (index <= (this.page * this.recipesOnPage) - 1)){
+  //         this.recipePagination.push(recipe);
+  //       }
+  //   });
+  //   console.log(this.recipePagination);
+  // }
+  
 }

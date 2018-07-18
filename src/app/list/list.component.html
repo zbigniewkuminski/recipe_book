@@ -1,6 +1,6 @@
 <div id="main" class="container-fluid">
   <br>
-  <ul *ngFor="let recipe of recipePagination; let i = index">
+  <ul *ngFor="let recipe of recipes; let i = index">
     <div class="row">
       <div id="ingredients" class="col-md-2">
         <h2>Składniki:</h2>
@@ -27,7 +27,8 @@
     <hr>
   </ul>
 
+<!-- 
   <button id="prevButton" (click)="prevPage()" routerLink="/" class="btn btn-primary pull-left" [disabled]="page === 1"><span class="glyphicon glyphicon-backward"></span>  Prev</button>
   <button id="nextButton" (click)="nextPage()" routerLink="/" class="btn btn-primary pull-right" [disabled]="page > numberOfPages">Next  <span class="glyphicon glyphicon-forward"></span></button>
-
+ -->
 </div>

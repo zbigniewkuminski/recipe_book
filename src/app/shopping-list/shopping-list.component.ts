@@ -34,6 +34,7 @@ export class ShoppingListComponent implements OnInit {
       this.errorMessage = '';
       this.newShoppingListItemName = '';
       this.newShoppingListItemAmount = 1;
+      this.newShoppingListItemUnit = '';
     }
   }
 
