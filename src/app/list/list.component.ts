@@ -12,8 +12,7 @@ export class ListComponent implements OnInit {
 
   @Input() featureTitle: string;
 
-  constructor(private recipeService: AddRecipeService) {
-  }
+  constructor(private recipeService: AddRecipeService){}
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;

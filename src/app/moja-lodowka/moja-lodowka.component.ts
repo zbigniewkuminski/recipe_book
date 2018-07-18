@@ -100,19 +100,18 @@ export class MojaLodowkaComponent implements OnInit {
   }
 
   prepareMeal(recipeIng: Ingredient[]) {
-      recipeIng.forEach((recipeIngredient) => {
-        this.myFridgeIngredients.forEach((myFridgeIngredient, index) => {
-          if (recipeIngredient.name === myFridgeIngredient.name) {
-            if (recipeIngredient.amount === myFridgeIngredient.amount) {
-              this.myFridgeIngredients.splice(index, 1);
-              index--;
-            } else {
-              myFridgeIngredient.amount -= recipeIngredient.amount;
-            }
+    recipeIng.forEach((recipeIngredient) => {
+      this.myFridgeIngredients.forEach((myFridgeIngredient, index) => {
+        if (recipeIngredient.name === myFridgeIngredient.name) {
+          if (recipeIngredient.amount === myFridgeIngredient.amount) {
+            this.myFridgeIngredients.splice(index, 1);
+            index--;
+          } else {
+            myFridgeIngredient.amount -= recipeIngredient.amount;
           }
         }
-      })
-      
+      });
+    });
     alert('Przygotowałeś posiłek');
     this.selectedRecipeName = '';
   }
