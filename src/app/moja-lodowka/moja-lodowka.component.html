@@ -5,7 +5,7 @@
       <ul *ngFor="let ingredient of myFridgeIngredients; let i = index">
         <li>
           {{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})
-          <button class="btn btn-danger btn-xs" (click)="deleteIngredientFromFridge(i)">
+          <button class="btn btn-danger btn-xs pull-right" (click)="deleteIngredientFromFridge(i)">
             <span class="glyphicon glyphicon-remove"></span>
           </button>
         </li>
