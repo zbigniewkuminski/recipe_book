@@ -1,0 +1,24 @@
+<div id="main" class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Przepis na {{recipe.name}}</h1>
+      </div>
+      <div class="col-md-4">
+        <img class="img-responsive img-thumbnail" style="color: black" alt="Nie wczytano obrazu." src=' {{recipe.imageURL}} '>
+      </div>
+      <div class="col-md-3">
+        <h3>Składniki:</h3>
+        <ul *ngFor="let ingredient of recipe.ingredients">
+          <li>
+            {{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5">
+        <h3>Przepis:</h3>
+        {{recipe.description}}
+      </div>
+    </div>
+  </div>
+</div>

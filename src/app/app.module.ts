@@ -14,10 +14,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
 import { MatButtonModule, MatCheckboxModule,MatInputModule } from '@angular/material';
+import { RecipeComponent } from './list/recipe/recipe.component';
+
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
   { path: '', component: ListComponent },
+  { path: 'recipe/:id', component: RecipeComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'my-fridge', component: MojaLodowkaComponent }
 ]
@@ -31,6 +34,7 @@ const appRoutes: Routes = [
     Highlight,
     MojaLodowkaComponent,
     IngredientAmountValidation,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,

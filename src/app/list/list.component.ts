@@ -16,14 +16,13 @@ export class ListComponent implements OnInit {
   page = 1;
   numberOfPages = 1;
  */
-  @Input() featureTitle: string;
   constructor(private recipeService: AddRecipeService) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.recipesArray;
-/*     this.numberOfPages = this.recipes.length / this.recipesOnPage;
-/*     this.recipePagination = [];
-    this.loadedRecipes(); */ 
+    /*     this.numberOfPages = this.recipes.length / this.recipesOnPage;
+    /*     this.recipePagination = [];
+           this.loadedRecipes(); */
   }
 
   deleteRecipe(id: number) {
@@ -51,5 +50,5 @@ export class ListComponent implements OnInit {
   //   });
   //   console.log(this.recipePagination);
   // }
-  
+
 }
