@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 import { AddRecipeService } from '../service/add-recipe.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-recipe',
@@ -26,19 +25,9 @@ export class NewRecipeComponent implements OnInit {
   newRecipeImgUrl = '';
   newRecipeDesc = '';
 
-  urlName: string;
-
-  constructor(private recipeService: AddRecipeService,
-              private route: ActivatedRoute,
-              private router: Router) { }
-
+  constructor(private recipeService: AddRecipeService) { }
   ngOnInit() {
   }
-
-
-  // onReload() {
-  //   this.router.navigate(['test'], {relativeTo: this.route});
-  // }
 
   addIngredient() {
     if (this.newIngredientName === '') {
