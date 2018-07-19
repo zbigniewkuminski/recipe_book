@@ -12,10 +12,10 @@
 
             <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                 <li>
-                    {{ing.name}} ({{ing.amount}} {{ing.unit}})
                     <button class="btn-xs btn btn-danger" (click)="deleteIngredient(i)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
+                    {{ing.name}} ({{ing.amount}} {{ing.unit}})
                 </li>
             </ul>
         </div>

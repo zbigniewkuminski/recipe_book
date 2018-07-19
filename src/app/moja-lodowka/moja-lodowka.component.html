@@ -1,19 +1,19 @@
 <div id="main" class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <p>Zapasy:</p>
       <ul *ngFor="let ingredient of myFridgeIngredients; let i = index">
         <li>
-          {{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})
-          <button class="btn btn-danger btn-xs pull-right" (click)="deleteIngredientFromFridge(i)">
+          <button class="btn btn-danger btn-xs pull-left" (click)="deleteIngredientFromFridge(i)">
             <span class="glyphicon glyphicon-remove"></span>
           </button>
+          {{ingredient.name}} ({{ingredient.amount}} {{ingredient.unit}})
         </li>
       </ul>
       <button class="btn btn-primary" (click)="swapRecipeList()" *ngIf="allRecipes">Co mogę ugotować?</button>
       <button class="btn btn-primary" (click)="swapRecipeList()" *ngIf="!allRecipes">Pokaż wszystkie</button>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="col-md-4" *ngIf="allRecipes; else albeRecipes">
         <p style="font-size: 24px">Przepisy:</p>
         <ul *ngFor="let recipe of recipes; let i = index">

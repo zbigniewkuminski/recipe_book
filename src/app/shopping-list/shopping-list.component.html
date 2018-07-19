@@ -22,7 +22,7 @@
         <div id="shoppingList" class="col-md-3 container-fluid" *ngIf="shoppingList.length !== 0; else noShoppingList">
             <p>Lista zakupów:</p>
             <ul *ngFor="let item of shoppingList; let i = index">
-                <li> {{item.name}} ({{item.amount}})
+                <li> {{item.name}} ({{item.amount}} {{item.unit}})
                     <button class="btn btn-xs btn-danger pull-right" (click)="removeFromList(i)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
