@@ -27,6 +27,9 @@ export class ListComponent implements OnInit {
 
   deleteRecipe(id: number) {
     this.recipeService.deleteRecipe(id);
+    this.numberOfPages = this.recipes.length / this.recipesOnPage;
+    this.recipePagination = [];
+    this.loadedRecipes();
   }
 
   prevPage() {
