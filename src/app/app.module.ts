@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [AddRecipeService],
   bootstrap: [AppComponent]

@@ -5,25 +5,14 @@
         <div class="row">
             <div class="col-md-4 newRecipeInput">
                 <label class="newRecipeLabel" for="inputName">Podaj nazwę przepisu:</label>
-                <input 
-                type="text" 
-                class="form form-control"  
-                ngModel 
-                name="newRecipeName" 
-                required 
-                #newRecipeName="ngModel">
+                <input type="text" class="form form-control" ngModel name="newRecipeName" required #newRecipeName="ngModel">
                 <span class="help-block" *ngIf="!newRecipeName.valid && newRecipeName.touched">Podaj nazwę przepisu</span>
             </div>
 
             <form (ngSubmit)="addIngredient(ingredientForm)" #ingredientForm="ngForm">
                 <div class="col-md-3 newRecipeInput">
                     <label class="newRecipeLabel" for="ingredientName">Podaj składniki:</label>
-                    <input 
-                    type="text" 
-                    class="form form-control" 
-                    ngModel name="newIngredientName"                     
-                    required
-                    #newIngredientName="ngModel">
+                    <input type="text" class="form form-control" ngModel name="newIngredientName" required #newIngredientName="ngModel">
                     <span class="help-block" *ngIf="!newIngredientName.valid && newIngredientName.touched">Podaj nazwę składnika</span>
                     <ul class="newRecipeLabel" *ngFor="let ing of ingredients; let i = index">
                         <li>
@@ -38,24 +27,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
-                            <input 
-                            class="form form-control text-center" 
-                            type="number"  
-                            min="1" max="99" 
-                            ngModel 
-                            name="newIngredientAmount"                              
-                            required
-                            #newIngredientAmount="ngModel">
+                            <input class="form form-control text-center" type="number" min="1" max="99" ngModel name="newIngredientAmount" required #newIngredientAmount="ngModel">
                             <span class="help-block" *ngIf="!newIngredientAmount.valid && newIngredientAmount.touched">Podaj ilość składnika</span>
                         </div>
+                        <label class="newRecipeLabel" for="ingredientUnit">Podaj jednostkę:</label>
                         <div class="col-md-6 radio" *ngFor="let unit of ingredientUnit">
                             <label>
-                                <input type="radio" 
-                                name="unit"
-                                ngModel
-                                [value]="unit"
-                                >
-                                {{unit}}
+
+                                <input type="radio" name="unit" ngModel [value]="unit" required> {{unit}}
                             </label>
                         </div>
                     </div>
@@ -74,23 +53,12 @@
         </div>
         <div class="row col-md-12">
             <label for="ingredientImagePath" class="newRecipeLabel">Podaj URL zdjęcia przepisu:</label>
-            <input 
-            type="text" 
-            class="form form-control" 
-            ngModel 
-            name="newRecipeImgUrl" 
-            required
-            #newRecipeImgURL="ngModel">
+            <input type="text" class="form form-control" ngModel name="newRecipeImgUrl" required #newRecipeImgURL="ngModel">
             <span class="help-block" *ngIf="!newRecipeImgURL.valid && newRecipeImgURL.touched">Podaj URL do zdjęcia</span>
         </div>
         <div class="row NewRecipeInput col-md-12">
             <label class="newRecipeLabel" for="inputContent">Podaj przepis:</label>
-            <textarea 
-            class="form form-control"  
-            ngModel 
-            name="newRecipeDesc" 
-            required
-            #newRecipeDescription="ngModel"></textarea>
+            <textarea class="form form-control" ngModel name="newRecipeDesc" required #newRecipeDescription="ngModel"></textarea>
             <span class="help-block" *ngIf="!newRecipeDescription.valid && newRecipeDescription.touched">Podaj treść przepisu</span>
         </div>
         <div class="row">

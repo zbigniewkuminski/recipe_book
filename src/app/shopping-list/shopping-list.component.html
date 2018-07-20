@@ -1,30 +1,39 @@
 <div id="main" class="container-fluid">
+
+
     <div class="row">
-        <div id="listInput" class="col-md-5">
 
-            <h3> Przygotuj listę zakupów:</h3>
-            <hr>
-            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać">
+        <form (ngSubmit)="addToShoppingList(newIngredientForm)" #newIngredientForm="ngForm">
+            <div id="listInput" class="col-md-5">
 
-            <div class="col-md-6">
-                <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()"
-                type="number" min="1" max="99">
+                <h3> Przygotuj listę zakupów:</h3>
+                <hr>
+                <input class="shoppingListInput 
+                text-center 
+                form-control" type="text" ngModel name="newShoppingListItemName" placeholder="Wpisz co dodać" required #newIngredientName="ngModel">
+
+                <div class="col-md-12">
+                    <input class="shoppingListInput 
+                    form-control 
+                    text-center" ngModel name="newShoppingListItemAmount" type="number" min="1" max="99" required #newIngredientAmount="ngModel">
+                </div>
+
+                <div class="col-md-2 radio">
+                    <label *ngFor="let unit of ingredientUnit">
+                        <input type="radio" name="unit" ngModel [value]="unit" required> {{unit}}
+                    </label>
+                </div>
+
+                <button id="add-button" class="btn btn-success btn-sm pull-right form-control" type="submit">Dodaj do listy
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </button>
+
+                <div id="errorMsg">
+                    <h5 class="errorMessage" *ngIf="!errorMessage == ''">{{ errorMessage }} {{ newShoppingListItem }}</h5>
+                </div>
+
             </div>
-
-            <div class="col-md-6">
-                <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemUnit" placeholder="Jednostka miary">
-            </div>
-
-            <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()" type="button">Dodaj do listy
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-            </button>
-
-            <div id="errorMsg">
-                <h5 class="errorMessage" *ngIf="!errorMessage == ''">{{ errorMessage }} {{ newShoppingListItem }}</h5>
-            </div>
-            
-        </div>
-
+        </form>
         <div id="shoppingList" class="col-md-3 container-fluid" *ngIf="shoppingList.length !== 0; else noShoppingList">
             <p>Lista zakupów:</p>
             <ul *ngFor="let item of shoppingList; let i = index">
