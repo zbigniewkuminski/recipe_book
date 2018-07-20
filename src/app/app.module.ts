@@ -19,7 +19,7 @@ import { RecipeComponent } from './list/recipe/recipe.component';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
-  { path: '', component: ListComponent },
+  { path: 'page/:page', component: ListComponent },
   { path: 'recipe/:id', component: RecipeComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'my-fridge', component: MojaLodowkaComponent }

@@ -1,22 +1,28 @@
 <div id="main" class="container-fluid">
     <div class="row">
         <div id="listInput" class="col-md-5">
+
             <h3> Przygotuj listę zakupów:</h3>
             <hr>
-            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać" IngCorrAmount>
+            <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemName" placeholder="Wpisz co dodać">
+
             <div class="col-md-6">
                 <input class="shoppingListInput form-control text-center" [(ngModel)]="newShoppingListItemAmount" (change)="isCorrect()"
-                type="number" min="1" max="99" IngCorrAmount>
+                type="number" min="1" max="99">
             </div>
+
             <div class="col-md-6">
-                <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemUnit" placeholder="Jednostka miary" IngCorrAmount>
+                <input class="shoppingListInput text-center form-control" type="text" [(ngModel)]="newShoppingListItemUnit" placeholder="Jednostka miary">
             </div>
-            <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()">Dodaj do listy
+
+            <button id="add-button" class="btn btn-success btn-sm pull-right form-control" (click)="addToShoppingList()" type="button">Dodaj do listy
                 <span class="glyphicon glyphicon-shopping-cart"></span>
             </button>
+
             <div id="errorMsg">
                 <h5 class="errorMessage" *ngIf="!errorMessage == ''">{{ errorMessage }} {{ newShoppingListItem }}</h5>
             </div>
+            
         </div>
 
         <div id="shoppingList" class="col-md-3 container-fluid" *ngIf="shoppingList.length !== 0; else noShoppingList">
@@ -30,7 +36,6 @@
             </ul>
             <button class="btn btn-danger shoppingListButtons pull-right" (click)="clearShoppingList()">Wyczyść</button>
             <button class="btn btn-primary shoppingListButtons pull-right" (click)="buyIngredients()">Kupuj</button>
-
         </div>
 
         <ng-template #noShoppingList>

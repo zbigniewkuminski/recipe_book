@@ -84,9 +84,11 @@ export class MojaLodowkaComponent implements OnInit {
       }
     }
   }
+
   swapRecipeList() {
     this.allRecipes = !this.allRecipes;
     this.whatCanIPrepareList = [];
+    this.selectedRecipeName = '';
     this.whatCanIPrepare();
   }
 
@@ -115,4 +117,5 @@ export class MojaLodowkaComponent implements OnInit {
     alert('Przygotowałeś posiłek');
     this.selectedRecipeName = '';
   }
+  
 }

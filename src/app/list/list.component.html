@@ -22,7 +22,10 @@
     <hr>
   </ul>
 
-  <button id="prevButton" (click)="prevPage()" routerLink="/" class="btn btn-primary pull-left" [disabled]="page === 1"><span class="glyphicon glyphicon-backward"></span>  Prev</button>
-  <button id="nextButton" (click)="nextPage()" routerLink="/" class="btn btn-primary pull-right" [disabled]="page >= numberOfPages">Next  <span class="glyphicon glyphicon-forward"></span></button>
-
+  <button id="prevButton" (click)="prevPage()" routerLink="/page/{{page - 1 }}" class="btn btn-primary pull-left" [disabled]="page === 1">
+    <span class="glyphicon glyphicon-backward"></span> Prev</button>
+  <button id="nextButton" (click)="nextPage()" routerLink="/page/{{page + 1 }}" class="btn btn-primary pull-right" [disabled]="page >= numberOfPages">Next
+    <span class="glyphicon glyphicon-forward"></span>
+  </button>
+  <br>
 </div>

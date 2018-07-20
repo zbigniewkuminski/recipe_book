@@ -15,6 +15,7 @@ textarea {
     color: rgb(255, 125, 125)
 }
 .newRecipeLabel {
+    font-size: 15px;
     color: white;
     margin-top: 15px;
     margin-bottom: 0px;
@@ -39,4 +40,15 @@ p {
 }
 #ingredients {
     word-wrap: break-word;
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+    background-color: rgb(231, 152, 166);
+}
+::placeholder{
+    color: black;
+}
+.help-block {
+    color :red;
+    font-weight: bold;
 }

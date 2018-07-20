@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   recipesOnPage = 3;
   page = 1;
   numberOfPages = 1;
-
+  recipeIndex = 0;
   constructor(private recipeService: AddRecipeService) { }
 
   ngOnInit() {
@@ -23,10 +23,12 @@ export class ListComponent implements OnInit {
     this.numberOfPages = this.recipes.length / this.recipesOnPage;
     this.recipePagination = [];
     this.loadedRecipes();
+    console.log(this.recipes);
   }
 
   deleteRecipe(id: number) {
-    this.recipeService.deleteRecipe(id);
+    this.recipeIndex = ((this.page-1)  * this.recipesOnPage) + id;
+    this.recipeService.deleteRecipe(this.recipeIndex);
     this.numberOfPages = this.recipes.length / this.recipesOnPage;
     this.recipePagination = [];
     this.loadedRecipes();
