@@ -8,18 +8,16 @@
 
                 <h3> Przygotuj listę zakupów:</h3>
                 <hr>
-                <input class="shoppingListInput 
-                text-center 
-                form-control" type="text" ngModel name="newShoppingListItemName" placeholder="Wpisz co dodać" required #newIngredientName="ngModel">
+                <input class="shoppingListInput text-center form-control" type="text" ngModel name="newShoppingListItemName" placeholder="Wpisz co dodać"
+                    required #newIngredientName="ngModel">
 
                 <div class="col-md-12">
-                    <input class="shoppingListInput 
-                    form-control 
-                    text-center" ngModel name="newShoppingListItemAmount" type="number" min="1" max="99" required #newIngredientAmount="ngModel">
+                    <input class="shoppingListInput form-control text-center" ngModel name="newShoppingListItemAmount" type="number" min="1"
+                        max="99" required #newIngredientAmount="ngModel">
                 </div>
 
                 <div class="col-md-2 radio">
-                    <label *ngFor="let unit of ingredientUnit">
+                    <label class="radioInput" *ngFor="let unit of ingredientUnit">
                         <input type="radio" name="unit" ngModel [value]="unit" required> {{unit}}
                     </label>
                 </div>

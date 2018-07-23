@@ -6,7 +6,7 @@ import { Recipe } from '../shared/recipe.model';
 })
 export class AddRecipeService {
   recipesArray: Recipe[] = [
-    new Recipe('kanapka', 
+/*     new Recipe('kanapka', 
     [{ name: "chleb", amount: 2, unit: "szt" },
      { name: "masło", amount: 1, unit: "szt" }],
       './assets/images/kanapka.jpg', 
@@ -29,7 +29,7 @@ export class AddRecipeService {
     new Recipe('chleb', 
     [{ name: "mąka", amount: 1, unit: "kg" }], 
     '../assets/images/ryż.jpg', 
-    'Ugotuj ryż.'),
+    'Ugotuj ryż.'), */
   ];
   constructor() { }
 

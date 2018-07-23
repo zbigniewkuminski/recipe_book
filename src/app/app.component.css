@@ -3,16 +3,6 @@ input {
     background-color: rgb(255, 255, 255);
     color: black;
 }
-#search-button {
-    background-color: rgb(73, 145, 252);
-    margin-top: 5px;
-    color: white;
-}
-#search-button:hover {
-    background-color: #1f63c9;
-    margin-top: 5px;
-    color: white;
-}
 #navbar-elements {
     margin-top:10px;
 }
@@ -55,12 +45,12 @@ input {
     min-height: 80px;
     margin-right: 10px;
 }   
-#navbar-button:hover {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-}   
 
+.activeWindow {
+    font-weight: bold;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
 #divNavbar {
     position: sticky;
     z-index : 100;
@@ -72,9 +62,9 @@ input {
         z-index: 0;
     }
 }
-.activeWindow {
-    font-weight: bold;
-    font-size: 20px;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+@media only screen and (min-width: 990px) {
+    #navbar-button:hover {
+        font-weight: bold;
+        text-align: center;
+    }   
 }

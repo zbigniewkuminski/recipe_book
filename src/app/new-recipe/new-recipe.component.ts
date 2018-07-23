@@ -3,6 +3,7 @@ import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 import { AddRecipeService } from '../service/add-recipe.service';
 import { NgForm } from '@angular/forms';
+import { ServerServiceService } from '../service/server-service.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -16,7 +17,8 @@ export class NewRecipeComponent implements OnInit {
   newRecipe: Recipe;
   ingredientUnit = ['szt', 'kg', 'l'];
 
-  constructor(private recipeService: AddRecipeService) { }
+  constructor(private recipeService: AddRecipeService,
+              private addRecipe: ServerServiceService) { }
   ngOnInit() {
   }
 
@@ -40,8 +42,15 @@ export class NewRecipeComponent implements OnInit {
       imageURL: recipeForm.value.newRecipeImgUrl, 
       description: recipeForm.value.newRecipeDesc}
     this.recipeService.addNewRecipe(this.newRecipe);
+
+    this.addRecipe.storeRecipes(this.newRecipe)
+    .subscribe(
+      (response) => console.log(response),
+      (Error)=> console.log(Error)
+    );
+
+
     alert("Utworzono nowy przepis");
     this.clearNewRecipe(recipeForm);
   }
-
 }

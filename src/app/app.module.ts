@@ -15,7 +15,8 @@ import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
 import { MatButtonModule, MatCheckboxModule,MatInputModule } from '@angular/material';
 import { RecipeComponent } from './list/recipe/recipe.component';
-
+import { ServerServiceService } from './service/server-service.service';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
@@ -44,8 +45,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
+    HttpModule
   ],
-  providers: [AddRecipeService],
+  providers: [AddRecipeService,
+    ServerServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

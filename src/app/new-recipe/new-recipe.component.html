@@ -25,21 +25,20 @@
                 </div>
                 <div class="col-md-3">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <label for="ingredientAmount" class="newRecipeLabel ">Ilość:</label>
                             <input class="form form-control text-center" type="number" min="1" max="99" ngModel name="newIngredientAmount" required #newIngredientAmount="ngModel">
                             <span class="help-block" *ngIf="!newIngredientAmount.valid && newIngredientAmount.touched">Podaj ilość składnika</span>
                         </div>
                         <label class="newRecipeLabel" for="ingredientUnit">Podaj jednostkę:</label>
-                        <div class="col-md-6 radio" *ngFor="let unit of ingredientUnit">
-                            <label>
-
-                                <input type="radio" name="unit" ngModel [value]="unit" required> {{unit}}
+                        <div class="col-md-2 radio">
+                            <label class="radioInput" *ngFor="let unit of ingredientUnit">
+                                <input  type="radio" name="unit" ngModel [value]="unit" required> {{unit}}
                             </label>
-                        </div>
+                        </div>         
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <button class="btn btn-primary btn-sm newRecipeButton form-control" [disabled]="!ingredientForm.valid" type="submit">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>

@@ -52,3 +52,8 @@ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
     color :red;
     font-weight: bold;
 }
+@media only screen and (max-width: 1024px) {
+    .radioInput {
+        margin-right: 5px;
+    }
+}
