@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from '../shared/recipe.model';
 import { AddRecipeService } from '../service/add-recipe.service';
+import { NgForm } from '@angular/forms';
+import { ServerServiceService } from '../service/server-service.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -11,92 +13,44 @@ import { AddRecipeService } from '../service/add-recipe.service';
 export class NewRecipeComponent implements OnInit {
   @Input() featureTitle: string;
 
-  newIngredientName = '';
-  newIngredientAmount = 1;
-  newIngredientUnit = '';
-  sameIngredientCounter = 0;
   ingredients: Ingredient[] = [];
+  newRecipe: Recipe;
+  ingredientUnit = ['szt', 'kg', 'l'];
 
-  errorMsg = '';
-  errorStatus = false;
-
-  newRecipe = new Recipe('', [], '', '');
-  newRecipeName = '';
-  newRecipeImgUrl = '';
-  newRecipeDesc = '';
-
-  constructor(private recipeService: AddRecipeService) { }
+  constructor(private recipeService: AddRecipeService,
+              private addRecipe: ServerServiceService) { }
   ngOnInit() {
   }
 
-  addIngredient() {
-    if (this.newIngredientName === '') {
-      this.errorMsg = 'Musisz podać nazwę składnika';
-      this.errorStatus = true;
-    } else {
-      if (this.ingredients.length > 0) {
-        this.ingredients.forEach(element => {
-          if (element.name === this.newIngredientName) {
-            this.sameIngredientCounter++;
-          }
-        });
-        if (this.sameIngredientCounter > 0) {
-          this.errorMsg = this.newIngredientName + ' już się znajduje na liście składników.'
-          this.errorStatus = true;
-          this.newIngredientName = '';
-          this.sameIngredientCounter = 0;
-        } else {
-          this.errorMsg = '';
-          this.errorStatus = false;
-        }
-      }
-      if (this.errorStatus === false || this.ingredients.length === 0) {
-        this.ingredients.push({ "name": this.newIngredientName, "amount": this.newIngredientAmount, "unit": this.newIngredientUnit });
-        this.newIngredientName = '';
-        this.newIngredientAmount = 1;
-        this.errorStatus = false;
-      }
-    }
+  addIngredient(form: NgForm) {
+    console.log(form);
+    this.ingredients.push({ "name": form.value.newIngredientName, "amount": form.value.newIngredientAmount, "unit": form.value.unit })
+    form.reset();
   }
 
   deleteIngredient(index: number) {
     this.ingredients.splice(index, 1);
   }
 
-  clearIngredientsList() {
+  clearNewRecipe(recipeForm: NgForm) {
+    recipeForm.reset();
     this.ingredients = [];
-    this.errorMsg = '';
-    this.errorStatus = false;
-    this.newIngredientAmount = 1;
-    this.newIngredientName = '';
   }
-  clearNewRecipe() {
-    this.clearIngredientsList();
-    this.newRecipeName = '';
-    this.newRecipeImgUrl = '';
-    this.newRecipeDesc = '';
-  }
-  createNewRecipe() {
-    if (this.newRecipeName !== '' && this.newRecipeDesc !== '' && this.ingredients.length !== 0) {
-      this.newRecipe.name = this.newRecipeName;
-      this.newRecipe.ingredients = this.ingredients;
-      this.newRecipe.description = this.newRecipeDesc;
-      this.newRecipe.imageURL = this.newRecipeImgUrl;
+  createNewRecipe(recipeForm: NgForm) {
+    console.log(recipeForm);
+    this.newRecipe = {name: recipeForm.value.newRecipeName, ingredients: this.ingredients, 
+      imageURL: recipeForm.value.newRecipeImgUrl, 
+      description: recipeForm.value.newRecipeDesc}
+    this.recipeService.addNewRecipe(this.newRecipe);
 
-      this.recipeService.addNewRecipe(this.newRecipe);
+    this.addRecipe.storeRecipes(this.newRecipe)
+    .subscribe(
+      (response) => console.log(response),
+      (Error)=> console.log(Error)
+    );
 
-      alert("Utworzono nowy przepis");
-      this.clearIngredientsList();
-      this.newRecipeName = '';
-      this.newRecipeImgUrl = '';
-      this.newRecipeDesc = '';
-    } else {
-      alert("Wypełnij wszystkie pola");
-    }
-  }
-  isCorrect() {
-    if (this.newIngredientAmount < 1 || this.newIngredientAmount > 99) {
-      this.newIngredientAmount = 1;
-    }
+
+    alert("Utworzono nowy przepis");
+    this.clearNewRecipe(recipeForm);
   }
 }

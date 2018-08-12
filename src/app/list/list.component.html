@@ -1,30 +1,31 @@
 <div id="main" class="container-fluid">
   <br>
-  <ul *ngFor="let recipe of recipes; let i = index">
-    <div class="row">
-      <div id="ingredients" class="col-md-2">
-        <h2>Składniki:</h2>
-        <ul *ngFor="let ing of recipe.ingredients">
-          <li>{{ ing.name }} ({{ing.amount}} {{ing.unit}})</li>
-        </ul>
-      </div>
+  <ul *ngFor="let recipe of recipePagination; let i = index">
 
-      <div id="recipe-details" class="col-md-9">
-        <div id="recipe-img" class="col-md-4">
-          <img class="img-responsive img-thumbnail" style="color: black" alt="Nie wczytano obrazu." src=' {{recipe.imageURL}} '>
+    <div class="row">
+      <a routerLink="/recipe/{{((page - 1) * recipesOnPage) + i}}">
+        <div id="recipe-details" class="col-md-11">
+          <div id="recipe-img" class="col-md-4">
+            <img class="img-responsive img-thumbnail" style="color: black" alt="Nie wczytano obrazu." src=' {{recipe.imageURL}} '>
+          </div>
+          <div id="recipe-instructions" class="col-md-8 text-left">
+            <h2> {{ recipe.name | uppercase}} </h2>
+          </div>
         </div>
-        <div id="recipe-instructions" class="col-md-8 text-left">
-          <h2> {{ recipe.name }} </h2>
-          {{ recipe.description }}
-        </div>
-      </div>
+      </a>
       <div class="col-md-1">
         <button class="btn btn-danger pull-right" (click)="deleteRecipe(i)">Usuń
           <span class="glyphicon glyphicon-trash"></span>
         </button>
       </div>
     </div>
-
     <hr>
   </ul>
+
+  <button id="prevButton" (click)="prevPage()" routerLink="/page/{{page - 1 }}" class="btn btn-primary pull-left" [disabled]="page === 1">
+    <span class="glyphicon glyphicon-backward"></span> Prev</button>
+  <button id="nextButton" (click)="nextPage()" routerLink="/page/{{page + 1 }}" class="btn btn-primary pull-right" [disabled]="page >= numberOfPages">Next
+    <span class="glyphicon glyphicon-forward"></span>
+  </button>
+  <br>
 </div>

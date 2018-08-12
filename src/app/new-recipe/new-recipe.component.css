@@ -15,6 +15,7 @@ textarea {
     color: rgb(255, 125, 125)
 }
 .newRecipeLabel {
+    font-size: 15px;
     color: white;
     margin-top: 15px;
     margin-bottom: 0px;
@@ -30,7 +31,7 @@ p {
 #main {
     background-color: rgb(43, 43, 43);
     color: white;
-    min-height: 500px;
+    min-height: 800px;
     margin-bottom: 15px;
 }
 #recipe-instructions {
@@ -39,4 +40,20 @@ p {
 }
 #ingredients {
     word-wrap: break-word;
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+    background-color: rgb(231, 152, 166);
+}
+::placeholder{
+    color: black;
+}
+.help-block {
+    color :red;
+    font-weight: bold;
+}
+@media only screen and (max-width: 1024px) {
+    .radioInput {
+        margin-right: 5px;
+    }
 }

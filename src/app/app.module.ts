@@ -14,10 +14,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { MojaLodowkaComponent } from './moja-lodowka/moja-lodowka.component';
 import { IngredientAmountValidation } from './directives/ingredientAmountValidation.directive';
 import { MatButtonModule, MatCheckboxModule,MatInputModule } from '@angular/material';
+import { RecipeComponent } from './list/recipe/recipe.component';
+import { ServerServiceService } from './service/server-service.service';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'new-recipe', component: NewRecipeComponent },
-  { path: '', component: ListComponent },
+  { path: 'page/:page', component: ListComponent },
+  { path: 'recipe/:id', component: RecipeComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'my-fridge', component: MojaLodowkaComponent }
 ]
@@ -31,6 +35,7 @@ const appRoutes: Routes = [
     Highlight,
     MojaLodowkaComponent,
     IngredientAmountValidation,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +44,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    HttpModule
   ],
-  providers: [AddRecipeService],
+  providers: [AddRecipeService,
+    ServerServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

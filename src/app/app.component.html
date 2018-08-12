@@ -3,34 +3,26 @@
         <nav id="navbar" class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header col-md-3">
-                    <div class="col-md-4 ">
+                    <div class="col-md-3">
                         <img class="logo" src="./assets/images/logo.png">
                     </div>
-                    <div class="col-md-5">
-                        <a id="title" routerLink="/" class="navbar-brand">Qchnia</a>
+                    <div class="col-md-9">
+                        <a id="title" routerLink="/page/1" class="navbar-brand">Qchnia</a>
                     </div>
                 </div>
-                <div class="container-fluid col-md-9">
+                <div class="container-fluid col-md-9 navigationBar">
                     <ul id="navbar-elements" class="nav navbar-nav">
                         <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow" [routerLinkActiveOptions]="{exact: true}">
-                            <a routerLink="/" (click)="selectedFeature='Recipes'">Przepisy</a>
+                            <a routerLink="/page/1">Przepisy</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
-                            <a routerLink="/shopping-list" (click)="selectedFeature='Shopping List'">Lista zakupów</a>
+                        <li id="navbar-button" class="col-md-3" role="presentation" routerLinkActive="activeWindow">
+                            <a routerLink="/shopping-list">Lista zakupów</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
-                            <a routerLink="new-recipe" (click)="selectedFeature='New Recipe'">Nowy przepis</a>
+                        <li id="navbar-button" class="col-md-3" role="presentation" routerLinkActive="activeWindow">
+                            <a routerLink="/new-recipe">Nowy przepis</a>
                         </li>
-                        <li id="navbar-button" class="col-md-2" role="presentation" routerLinkActive="activeWindow">
-                            <a routerLink="my-fridge" (click)="selectedFeature='My fridge'">Moja lodówka</a>
-                        </li>
-                        <li>
-                            <input id="search-input" class="form-control text-center col-md-2" type="search" placeholder="Czego szukasz?">
-                        </li>
-                        <li>
-                            <button id="search-button" class="btn btn-primary form-control col-md-2" type="submit">Szukaj
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
+                        <li id="navbar-button" class="col-md-3" role="presentation" routerLinkActive="activeWindow">
+                            <a routerLink="/my-fridge">Moja lodówka</a>
                         </li>
                     </ul>
                 </div>

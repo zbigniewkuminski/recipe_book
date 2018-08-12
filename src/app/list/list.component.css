@@ -1,7 +1,7 @@
 #main {
     background-color: rgb(43, 43, 43);
     color: white;
-    min-height: 500px;
+    min-height: 800px;
     margin-bottom: 15px;
 }
 #recipe-instructions { 
@@ -16,4 +16,43 @@ p {
     color: white;
     font-size: 32px;
     margin-left: 20px;
+}
+#nextButton {
+    margin-right: 30px;
+}
+#prevButton {
+    margin-left: 30px;
+} 
+
+@media only screen and (max-width: 320px) {
+    #nextButton {
+        margin-right: 50px;
+    }
+    #prevButton {
+        margin-left: 50px;
+    }
+}
+@media only screen and (min-width: 375px) {
+    #nextButton {
+        margin-right: 60px;
+    }
+    #prevButton {
+        margin-left: 60px;
+    }
+}
+@media only screen and (min-width: 414px) {
+    #nextButton {
+        margin-right: 70px;
+    }
+    #prevButton {
+        margin-left: 70px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    #nextButton {
+        margin-right: 200px;
+    }
+    #prevButton {
+        margin-left: 200px;
+    }
 }

@@ -1,7 +1,7 @@
 #main {
     background-color: rgb(43, 43, 43);
     color: white;
-    min-height: 500px;
+    min-height: 800px;
     margin-bottom: 15px;
 }
 .recipeButton {
@@ -15,5 +15,7 @@ p {
 }
 #searchRecipe {
     margin-bottom: 15px;
-
+}
+.removeButton {
+    margin-right: 10px;
 }
