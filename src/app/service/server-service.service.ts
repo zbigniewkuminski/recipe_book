@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Recipe } from '../shared/recipe.model';
-import 'rxjs/Rx'; 4
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
